@@ -1,0 +1,9 @@
+# Robots.txt for Cratera Engine
+# https://cratera.org
+
+User-agent: *
+Allow: /
+
+# Canonical XML Sitemap for Google, Bing, and search engines
+Sitemap: https://cratera.org/sitemap.xml
+Host: https://cratera.org

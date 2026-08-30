@@ -1,0 +1,23 @@
+{
+  "name": "Cratera | MicroVM Code Execution Engine",
+  "short_name": "Cratera",
+  "description": "Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute hardware isolation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#151d28",
+  "theme_color": "#151d28",
+  "icons": [
+    {
+      "src": "/img/cratera-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/cratera-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

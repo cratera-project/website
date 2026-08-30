@@ -1,0 +1,14 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "Official website and telemetry dashboard for Cratera hardware-isolated microVM execution engine",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "./scripts/ci.sh"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

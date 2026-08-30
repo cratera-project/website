@@ -1,0 +1,7 @@
+# Cratera Security Disclosure
+Contact: mailto:contact@cratera.org
+Contact: https://github.com/cratera-project/cratera/security/advisories
+Expires: 2028-12-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://cratera.org/.well-known/security.txt
+Policy: https://github.com/cratera-project/cratera/blob/main/SECURITY.md

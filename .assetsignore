@@ -1,0 +1,17 @@
+# Exclude build dependencies and repository configs from static assets upload
+node_modules/
+.git/
+.github/
+scripts/
+package.json
+package-lock.json
+bun.lock
+bun.lockb
+yarn.lock
+pnpm-lock.yaml
+wrangler.toml
+wrangler.jsonc
+.gitignore
+.assetsignore
+.wrangler/
+.dev.vars*

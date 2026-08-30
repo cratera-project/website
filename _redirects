@@ -1,0 +1,6 @@
+# Cloudflare Workers Static Assets Redirect Rules
+/github https://github.com/cratera-project/cratera 302
+/engine https://github.com/cratera-project/cratera 302
+/website https://github.com/cratera-project/website 302
+/zulip https://cratera.zulipchat.com 302
+/chat https://cratera.zulipchat.com 302
