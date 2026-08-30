@@ -877,16 +877,29 @@ h3.step-title {
   color: #38bdf8;
   padding: 10px 14px;
   font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  overflow-x: auto;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .step-cmd code {
   color: #38bdf8;
   white-space: nowrap;
+  overflow-x: auto;
+  display: block;
+  padding-right: 68px;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+  font-family: var(--font-mono);
+}
+
+.step-cmd .copy-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: -6px 0 10px 0 var(--bg-dark);
 }
 
 /* ==========================================================================
@@ -1330,21 +1343,20 @@ h3.step-title {
   }
 
   .step-cmd {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    padding: 10px 12px;
+    padding: 9px 12px;
   }
 
   .step-cmd code {
     font-size: 11px;
-    word-break: break-all;
-    white-space: normal;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding-right: 64px;
   }
 
   .step-cmd .copy-btn {
-    width: auto;
-    align-self: flex-start;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .faq-summary {
