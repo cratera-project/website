@@ -276,7 +276,7 @@
             "Rust", "Python", "JavaScript", "TypeScript", "C", "C++", "Go", "Zig",
             "Java", "Swift", "C#", "Kotlin", "Scala", "Ruby", "PHP", "Julia",
             "Haskell", "Lua", "Perl", "R", "Dart", "Elixir", "Erlang", "OCaml",
-            "Clojure", "Groovy", "D", "Nim", "Fortran", "Bash"
+            "Clojure", "F#", "D", "Nim", "Fortran", "Bash"
           ]
         },
         {
@@ -724,7 +724,7 @@
                 <tr><td>23</td><td class="lang-key">erlang</td><td>Erlang (OTP 27)</td><td><code>erlc -o /tmp {file}</code></td><td><code>erl -noshell -pa /tmp -s solution start</code></td><td class="lang-strategy">apt_core</td></tr>
                 <tr><td>24</td><td class="lang-key">ocaml</td><td>OCaml 5.1</td><td><code>ocamlopt -O3 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
                 <tr><td>25</td><td class="lang-key">clojure</td><td>Clojure</td><td>-</td><td><code>clojure -M {file}</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>26</td><td class="lang-key">groovy</td><td>Groovy 4.0</td><td>-</td><td><code>groovy {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                <tr><td>26</td><td class="lang-key">fsharp</td><td>F# (.NET / Mono)</td><td><code>fsharpc --out:/tmp/job.exe {file}</code></td><td><code>mono /tmp/job.exe</code></td><td class="lang-strategy">apt_core</td></tr>
                 <tr><td>27</td><td class="lang-key">d</td><td>D (DMD)</td><td><code>dmd -O -release -of=/tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
                 <tr><td>28</td><td class="lang-key">nim</td><td>Nim 2.0</td><td><code>nim c -d:release --out:/tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
                 <tr><td>29</td><td class="lang-key">fortran</td><td>Fortran (GFortran)</td><td><code>gfortran -O3 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
