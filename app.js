@@ -1,10 +1,11 @@
+// Cratera Website Client Script
+
 // Universal One-Click Copy Helper
 function copySnippet(button, targetId) {
   let text = "";
   if (targetId) {
     const el = document.getElementById(targetId);
     if (el) {
-      // For commands with comments like "# or:", get text or data-copy attribute
       text = el.getAttribute("data-copy") || el.innerText || el.textContent;
     }
   }
@@ -14,7 +15,7 @@ function copySnippet(button, targetId) {
   navigator.clipboard.writeText(text.trim()).then(() => {
     const originalHtml = button.innerHTML;
     button.classList.add("copied");
-    button.innerHTML = "<span>COPIED!</span>";
+    button.innerHTML = "<span>Copied</span>";
     setTimeout(() => {
       button.classList.remove("copied");
       button.innerHTML = originalHtml;
@@ -22,12 +23,6 @@ function copySnippet(button, targetId) {
   }).catch(err => {
     console.error("Clipboard copy failed:", err);
   });
-}
-
-// Copy Repository URL
-function copyRepoUrl() {
-  const btn = document.getElementById("copy-btn");
-  copySnippet(btn, "repo-url-text");
 }
 
 // Filter 30 Languages Table
@@ -50,7 +45,7 @@ function filterLanguages() {
   }
 }
 
-// Mobile & Desktop Navigation Controller
+// DOM Initialization & Navigation Controller
 document.addEventListener("DOMContentLoaded", () => {
   const sections = Array.from(document.querySelectorAll("section[id]"));
   const navLinks = Array.from(document.querySelectorAll(".sidebar-nav .nav-item[data-section]"));
@@ -59,6 +54,61 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let isClickScrolling = false;
   let clickTimeout = null;
+
+  // Set Active Navigation Item
+  function setActiveLink(sectionId) {
+    if (!sectionId) return;
+    navLinks.forEach(link => {
+      const match = link.getAttribute("data-section") === sectionId;
+      if (match) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.classList.remove("is-active");
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  // Update active nav based on scroll position
+  function updateActiveNav() {
+    if (isClickScrolling || sections.length === 0) return;
+
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
+    const documentHeight = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight
+    );
+
+    // 1. Top of page: always highlight Overview
+    if (scrollY < 100) {
+      setActiveLink("overview");
+      return;
+    }
+
+    // 2. Near bottom of page (within 100px): activate FAQ (last section)
+    if (scrollY + viewportHeight >= documentHeight - 100) {
+      const lastSection = sections[sections.length - 1];
+      setActiveLink(lastSection.getAttribute("id"));
+      return;
+    }
+
+    // 3. Scan sections from top to bottom
+    const threshold = 160;
+    let currentId = sections[0].getAttribute("id");
+
+    for (let i = 0; i < sections.length; i++) {
+      const rect = sections[i].getBoundingClientRect();
+      if (rect.top <= threshold) {
+        currentId = sections[i].getAttribute("id");
+      }
+    }
+
+    setActiveLink(currentId);
+  }
 
   // Mobile Menu Toggle
   if (mobileMenuBtn && sidebar) {
@@ -85,72 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function setActiveLink(sectionId) {
-    if (!sectionId) return;
-    navLinks.forEach(link => {
-      const match = link.getAttribute("data-section") === sectionId;
-      if (match) {
-        link.classList.add("is-active");
-        link.setAttribute("aria-current", "true");
-      } else {
-        link.classList.remove("is-active");
-        link.removeAttribute("aria-current");
-      }
-    });
-  }
-
-  function updateActiveNav() {
-    if (isClickScrolling || sections.length === 0) return;
-
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
-    const documentHeight = Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight
-    );
-
-    // 1. If at or near the bottom of the page (within 120px), activate the bottom-most section (FAQ)
-    if (scrollY + viewportHeight >= documentHeight - 120) {
-      const lastSection = sections[sections.length - 1];
-      setActiveLink(lastSection.getAttribute("id"));
-      return;
-    }
-
-    // 2. Scan sections from bottom to top
-    const threshold = Math.min(260, viewportHeight * 0.45);
-    let activeId = "";
-
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const rect = sections[i].getBoundingClientRect();
-      if (rect.top <= threshold && rect.bottom > 80) {
-        activeId = sections[i].getAttribute("id");
-        break;
-      }
-    }
-
-    // 3. Fallback: find the section with the largest visible portion in viewport
-    if (!activeId) {
-      let maxVisible = -1;
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const visibleHeight = Math.max(0, Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0));
-        if (visibleHeight > maxVisible) {
-          maxVisible = visibleHeight;
-          activeId = section.getAttribute("id");
-        }
-      });
-    }
-
-    if (!activeId && sections.length > 0) {
-      activeId = sections[0].getAttribute("id");
-    }
-
-    setActiveLink(activeId);
-  }
-
-  // Smooth, Zero-Horizontal-Shift Anchor Click Handler
+  // Sidebar & Anchor Link Click Handler (Smooth Scroll & Instant Highlight)
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", (e) => {
       const href = link.getAttribute("href");
@@ -169,21 +154,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      const isMobile = window.innerWidth <= 960;
-      const mobileHeader = document.querySelector(".sidebar");
-      const headerOffset = isMobile && mobileHeader ? 65 : 20;
-
-      const elementPosition = targetEl.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
+      // Instantly highlight clicked nav item
       isClickScrolling = true;
       setActiveLink(targetId);
 
-      window.scrollTo({
-        top: Math.max(0, Math.round(offsetPosition)),
-        left: 0,
-        behavior: "smooth"
-      });
+      // Scroll smoothly to target
+      if (targetId === "overview") {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        });
+      } else {
+        const isMobile = window.innerWidth <= 960;
+        const headerOffset = isMobile ? 70 : 30;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, Math.round(offsetPosition)),
+          left: 0,
+          behavior: "smooth"
+        });
+      }
 
       if (history.pushState) {
         history.pushState(null, "", "#" + targetId);
@@ -193,21 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
       clickTimeout = setTimeout(() => {
         isClickScrolling = false;
         updateActiveNav();
-      }, 750);
+      }, 700);
     });
   });
 
-  // Attach scroll, resize, and touch listeners
-  window.addEventListener("scroll", () => {
-    // Lock horizontal scroll to 0 to prevent any side drifting
-    if (window.scrollX !== 0) {
-      window.scrollTo(0, window.scrollY);
-    }
-    updateActiveNav();
-  }, { passive: true });
-
+  // Attach passive scroll and resize listeners
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
   window.addEventListener("resize", updateActiveNav, { passive: true });
-  document.addEventListener("scroll", updateActiveNav, { passive: true });
 
   // Initial active nav check
   updateActiveNav();

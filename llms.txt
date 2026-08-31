@@ -1,15 +1,15 @@
 # Cratera — Hardware-Isolated MicroVM Code Execution Engine
 
-> Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute isolation. Built in Rust with Firecracker and Linux KVM for multi-tenant, untrusted code evaluation workloads.
+> Cratera is a self-hosted code execution and judge engine that runs untrusted programs inside Firecracker microVMs using Linux KVM.
 
 ## Core Capabilities
-- **Hardware Isolation**: Executes untrusted code inside dedicated hardware-isolated Firecracker microVMs (Ring 3 VT-x/AMD-V) rather than shared-kernel containers.
-- **Sub-5ms Snapshot Restore**: Bypasses guest Linux boot via in-memory snapshot restoration.
-- **Zero-NIC Network Security**: Enforces zero guest network interfaces paired with systemd eBPF IP packet filtering.
-- **Pure RAM Execution**: Ephemeral 256 MiB tmpfs workspace with zero persistent disk footprint.
-- **High-Precision Telemetry**: In-guest monotonic execution timer (microseconds) and live RSS memory sampling at 200μs intervals over AF_VSOCK:52.
-- **30 Built-in Toolchains**: Rust 2024, Python 3, JavaScript (Node 24), TypeScript, C++20, C17, Go 1.24, Zig 0.14, Java 21, Swift 6, C#, F# 8.0, Kotlin 2.1, Scala 3.6, Ruby 3.3, PHP 8.3, Julia 1.11, Haskell, Lua 5.4, Perl 5.38, R 4.4, Dart 3.6, Elixir 1.17, Erlang 27, OCaml 5.1, Clojure, D, Nim 2.0, Fortran, GNU Bash 5.2.
-- **Declarative Extensibility**: Add custom languages in under 60 seconds via `languages.toml` without Rust engine recompilation.
+- **Hardware Virtualization**: Runs untrusted code in ephemeral Linux microVMs with dedicated guest kernels rather than shared-kernel containers.
+- **~5ms Snapshot Restore**: Bypasses guest Linux boot latency via in-memory snapshot restoration.
+- **No Guest Networking**: Ephemeral microVMs launch with zero virtual network interfaces paired with host-level systemd network filtering.
+- **RAM Workspace**: Ephemeral 256 MiB tmpfs workspace with zero persistent disk footprint.
+- **In-Guest Telemetry**: Monotonic microsecond execution timer and live RSS memory sampling over point-to-point AF_VSOCK:52.
+- **30 Built-in Toolchains**: Rust, Python, Node, TypeScript, C++, C, Go, Zig, Java, Swift, C#, Kotlin, Scala, Ruby, PHP, Julia, Haskell, Lua, Perl, R, Dart, Elixir, Erlang, OCaml, Clojure, F#, D, Nim, Fortran, Bash.
+- **Declarative Extensibility**: Add custom toolchains via `languages.toml` without Rust engine recompilation.
 
 ## Official Resources & Contact
 - Homepage: https://cratera.org

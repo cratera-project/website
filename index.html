@@ -7,13 +7,13 @@
     <!-- Primary Page Metadata & SEO -->
     <title>Cratera | Hardware-Isolated MicroVM Code Execution Engine</title>
     <meta name="title" content="Cratera | Hardware-Isolated MicroVM Code Execution Engine" />
-    <meta name="description" content="Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute isolation. Built in Rust with Firecracker and Linux KVM for multi-tenant, untrusted code evaluation workloads." />
-    <meta name="keywords" content="microvm, firecracker, linux kvm, code execution engine, code sandbox, secure code runner, untrusted code evaluation, isolated execution, multi-tenant sandbox, rust, online judge, leetcode runner, zero-nic, vsock, jailer" />
+    <meta name="description" content="Cratera is a self-hosted code execution and judge engine that runs untrusted programs inside Firecracker microVMs using Linux KVM." />
+    <meta name="keywords" content="microvm, firecracker, linux kvm, code execution engine, code sandbox, secure code runner, untrusted code evaluation, isolated execution, multi-tenant sandbox, rust, online judge" />
     <meta name="author" content="Cratera Project" />
     <meta name="creator" content="Cratera Project" />
     <meta name="publisher" content="Cratera Project" />
     <meta name="application-name" content="Cratera" />
-    <meta name="theme-color" content="#151d28" />
+    <meta name="theme-color" content="#0f172a" />
     <meta name="color-scheme" content="light dark" />
 
     <!-- Search Engine Crawler Directives -->
@@ -27,7 +27,7 @@
     <meta property="og:url" content="https://cratera.org/" />
     <meta property="og:site_name" content="Cratera" />
     <meta property="og:title" content="Cratera | Hardware-Isolated MicroVM Code Execution Engine" />
-    <meta property="og:description" content="Bare-metal microVM execution engine built in Rust with Firecracker and Linux KVM for sub-millisecond cold starts and absolute isolation." />
+    <meta property="og:description" content="Cratera is a self-hosted code execution and judge engine that runs untrusted programs inside Firecracker microVMs using Linux KVM." />
     <meta property="og:image" content="https://cratera.org/img/og-image.png" />
     <meta property="og:image:secure_url" content="https://cratera.org/img/og-image.png" />
     <meta property="og:image:type" content="image/png" />
@@ -40,7 +40,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://cratera.org/" />
     <meta name="twitter:title" content="Cratera | Hardware-Isolated MicroVM Code Execution Engine" />
-    <meta name="twitter:description" content="Bare-metal microVM execution engine built in Rust with Firecracker and Linux KVM for sub-millisecond cold starts and absolute isolation." />
+    <meta name="twitter:description" content="Cratera is a self-hosted code execution and judge engine that runs untrusted programs inside Firecracker microVMs using Linux KVM." />
     <meta name="twitter:image" content="https://cratera.org/img/og-image.png" />
     <meta name="twitter:image:alt" content="Cratera Hardware-Isolated MicroVM Engine Logo" />
 
@@ -48,7 +48,7 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-    <!-- Adaptive Favicons (Black on Light Mode, White on Dark Mode) -->
+    <!-- Adaptive Favicons -->
     <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-dark-32.png" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-light-32.png" media="(prefers-color-scheme: light)" />
@@ -64,7 +64,7 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="style.css" />
 
-    <!-- JSON-LD Structured Data for Google Sitelinks, SearchBox & Knowledge Graph -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -79,19 +79,11 @@
             "Cratera MicroVM",
             "cratera-project"
           ],
-          "description": "Hardware-isolated microVM code execution engine designed for sub-millisecond cold starts and absolute isolation. Built in Rust with Firecracker and Linux KVM.",
+          "description": "Cratera is a self-hosted code execution and judge engine that runs untrusted programs inside Firecracker microVMs using Linux KVM.",
           "publisher": {
             "@id": "https://cratera.org/#organization"
           },
-          "inLanguage": "en-US",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://cratera.org/#languages?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
+          "inLanguage": "en-US"
         },
         {
           "@type": "Organization",
@@ -119,153 +111,12 @@
           ]
         },
         {
-          "@type": "WebPage",
-          "@id": "https://cratera.org/#webpage",
-          "url": "https://cratera.org/",
-          "name": "Cratera | Hardware-Isolated MicroVM Code Execution Engine",
-          "isPartOf": {
-            "@id": "https://cratera.org/#website"
-          },
-          "about": {
-            "@id": "https://cratera.org/#software"
-          },
-          "description": "Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute isolation. Built in Rust with Firecracker and Linux KVM.",
-          "inLanguage": "en-US",
-          "breadcrumb": {
-            "@id": "https://cratera.org/#breadcrumb"
-          }
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://cratera.org/#breadcrumb",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Overview",
-              "item": "https://cratera.org/#overview"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Specifications",
-              "item": "https://cratera.org/#specs"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Architecture",
-              "item": "https://cratera.org/#architecture"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Command Center",
-              "item": "https://cratera.org/#command-center"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "Languages",
-              "item": "https://cratera.org/#languages"
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "API Specification",
-              "item": "https://cratera.org/#api"
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "name": "Quickstart",
-              "item": "https://cratera.org/#quickstart"
-            },
-            {
-              "@type": "ListItem",
-              "position": 8,
-              "name": "Showcase",
-              "item": "https://cratera.org/#showcase"
-            },
-            {
-              "@type": "ListItem",
-              "position": 9,
-              "name": "FAQ",
-              "item": "https://cratera.org/#faq"
-            }
-          ]
-        },
-        {
-          "@type": "ItemList",
-          "@id": "https://cratera.org/#sitelinks",
-          "name": "Cratera Navigation Sitelinks",
-          "itemListElement": [
-            {
-              "@type": "SiteNavigationElement",
-              "position": 1,
-              "name": "System Specifications",
-              "description": "Hardware Ring 3 isolation, sub-5ms snapshot restore, Zero-NIC network security, and precision monotonic telemetry.",
-              "url": "https://cratera.org/#specs"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 2,
-              "name": "6-Stage Architecture Pipeline",
-              "description": "Deep dive into Ingestion Coordinator, Firecracker Jailer, KVM Boundary, Guest Init, Toolchain Sandbox, and Precision IPC.",
-              "url": "https://cratera.org/#architecture"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 3,
-              "name": "Command Center TUI",
-              "description": "Interactive terminal user interface for system health diagnostics, language toolchains, and resource budgets.",
-              "url": "https://cratera.org/#command-center"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 4,
-              "name": "30 Supported Languages Manifest",
-              "description": "Declarative languages.toml manifest supporting Rust, Python, Go, C++, TypeScript, Java, and 24+ more languages without recompilation.",
-              "url": "https://cratera.org/#languages"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 5,
-              "name": "HTTP API Specification",
-              "description": "Complete REST API spec for POST /harness with cURL examples, JSON schemas, and verdict error matrices.",
-              "url": "https://cratera.org/#api"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 6,
-              "name": "Developer Quickstart",
-              "description": "Step-by-step setup guide: clone repository, run install script, verify system diagnostics, and execute untrusted code.",
-              "url": "https://cratera.org/#quickstart"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 7,
-              "name": "Ecosystem Showcase",
-              "description": "Showcase of online judges, AI agent sandboxes, and autograding systems built on Cratera hardware microVMs.",
-              "url": "https://cratera.org/#showcase"
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "position": 8,
-              "name": "Frequently Asked Questions",
-              "description": "Answers to common questions about Firecracker microVM isolation, KVM performance, security boundaries, and toolchains.",
-              "url": "https://cratera.org/#faq"
-            }
-          ]
-        },
-        {
           "@type": "SoftwareApplication",
           "@id": "https://cratera.org/#software",
           "name": "Cratera",
           "operatingSystem": "Linux",
           "applicationCategory": "DeveloperApplication",
-          "description": "Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute isolation. Built in Rust with Firecracker and Linux KVM.",
-          "softwareVersion": "1.0.0",
+          "description": "Self-hosted code execution engine that runs untrusted programs inside Firecracker microVMs using Linux KVM.",
           "license": "https://github.com/cratera-project/cratera/blob/main/LICENSE",
           "codeRepository": "https://github.com/cratera-project/cratera",
           "offers": {
@@ -289,39 +140,23 @@
               "name": "What is Cratera and how does it execute untrusted code?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Cratera is a bare-metal microVM execution engine built in Rust using AWS Firecracker and Linux KVM virtualization. It executes untrusted, multi-tenant code inside isolated hardware microVMs in Ring 3 CPU isolation rather than shared-kernel containers, preventing kernel exploits and container breakout vulnerabilities."
+                "text": "Cratera is a self-hosted code execution and judge engine built in Rust using Firecracker and Linux KVM. It runs untrusted programs in ephemeral Linux microVMs with separate guest kernels, no guest network interface, and configurable CPU, memory, and process limits."
               }
             },
             {
               "@type": "Question",
-              "name": "How does Cratera achieve sub-5ms snapshot restore latency?",
+              "name": "How does Cratera achieve ~5ms snapshot restore latency?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Cratera takes a memory snapshot of a fully booted, pre-warmed guest Linux kernel and agent in RAM. When an execution request arrives, Cratera restores the microVM state in approximately 5ms, bypassing the entire guest OS boot sequence and toolchain initialization."
+                "text": "Cratera takes a memory snapshot of a pre-booted guest Linux kernel and supervisor agent in RAM. When an execution request arrives, Cratera restores the microVM memory state in approximately 5ms, bypassing guest Linux boot overhead."
               }
             },
             {
               "@type": "Question",
-              "name": "How does Cratera differ from Docker or container sandboxes?",
+              "name": "How does Cratera differ from Docker containers and WebAssembly sandboxes?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Traditional container sandboxes (Docker, LXC) share the host Linux kernel, exposing the host to kernel privilege escalation and syscall attacks. Cratera runs each workload inside an independent Linux microVM with its own dedicated guest kernel, unprivileged jailer process (UID 20001), chroot barrier, zero virtual network devices (Zero-NIC), and strict memory-only tmpfs storage."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How many programming languages are supported by Cratera?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Cratera natively supports 30 programming languages out of the box (including Rust, Python, Go, C++, TypeScript, Java, Zig, Swift, C#, Haskell, and Fortran). Additional languages and runtimes can be added dynamically in under 60 seconds via the declarative languages.toml manifest without recompiling the Rust engine."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What hardware and operating system requirements does Cratera have?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Cratera requires a 64-bit Linux host (x86_64 or aarch64 / ARM64) with Linux Kernel 5.10+, hardware virtualization enabled (/dev/kvm with Intel VT-x or AMD-V), cgroups v2 unified hierarchy, and the Firecracker Jailer installed."
+                "text": "Docker containers share the host Linux kernel, where a kernel vulnerability can compromise the host. WebAssembly provides sandboxing but lacks full POSIX support for native toolchains. Cratera provides hardware-level KVM virtualization with independent guest kernels while maintaining full POSIX compatibility for 30 language toolchains."
               }
             },
             {
@@ -329,7 +164,23 @@
               "name": "How does Cratera prevent network attacks and fork bombs?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Cratera enforces Zero-NIC hardware configuration with zero guest network interfaces and systemd eBPF IP blocking. Fork bombs and resource exhaustion are prevented using strict POSIX RLIMIT_NPROC, RLIMIT_CPU, cgroups v2 memory controllers, and SIGKILL kernel watchdogs."
+                "text": "MicroVMs are launched without a virtual network interface (no guest NIC). Fork bombs and resource exhaustion are mitigated via POSIX RLIMIT_NPROC, RLIMIT_CPU, cgroups v2 memory limits, and a hypervisor SIGKILL watchdog."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do you add new programming languages to Cratera?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Toolchains are defined declaratively in languages.toml and baked into the guest rootfs image. Adding a new language requires zero Rust engine recompilation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is Cratera deployed in production?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cratera includes a production systemd service unit that enables Firecracker Jailer isolation (UID 20001), host network restrictions (IPAddressDeny=any), cgroups v2 delegation, and automatic restart supervision."
               }
             }
           ]
@@ -342,15 +193,15 @@
     <div class="app-container">
       
       <!-- ====================================================================
-           LEFT FIXED SIDEBAR (Semantic Landmark & Navigation)
+           LEFT FIXED SIDEBAR
            ==================================================================== -->
       <aside class="sidebar" aria-label="Cratera Navigation Sidebar">
         <div class="sidebar-header">
-          <a href="#overview" class="brand-badge" aria-label="Cratera Engine Home">
-            <img src="img/cratera-logo.png" alt="Cratera MicroVM Engine Logo" class="brand-logo-img" width="140" height="140" loading="eager" />
+          <a href="#overview" class="brand-badge" aria-label="Cratera Home">
+            <img src="img/cratera-logo.png" alt="Cratera Logo" class="brand-logo-img" width="68" height="68" loading="eager" />
             <div class="brand-text-block">
               <span class="brand-name">CRATERA</span>
-              <span class="brand-version">ENGINE V1.0.0</span>
+              <span class="brand-version">MICROVM ENGINE</span>
             </div>
           </a>
           <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -361,20 +212,23 @@
         </div>
 
         <nav class="sidebar-nav" aria-label="Main Navigation">
-          <a href="#overview" class="nav-item is-active" data-section="overview" title="Cratera Overview">OVERVIEW</a>
-          <a href="#specs" class="nav-item" data-section="specs" title="System Specifications">SPECIFICATIONS</a>
-          <a href="#architecture" class="nav-item" data-section="architecture" title="Architecture Pipeline">ARCHITECTURE</a>
-          <a href="#command-center" class="nav-item" data-section="command-center" title="Interactive Command Center">COMMAND CENTER</a>
-          <a href="#languages" class="nav-item" data-section="languages" title="30 Supported Languages">LANGUAGES (30)</a>
-          <a href="#api" class="nav-item" data-section="api" title="HTTP API Specification">API SPEC</a>
-          <a href="#quickstart" class="nav-item" data-section="quickstart" title="Developer Quickstart">QUICKSTART</a>
-          <a href="#showcase" class="nav-item" data-section="showcase" title="Showcase (Built with Cratera)">SHOWCASE</a>
-          <a href="#faq" class="nav-item" data-section="faq" title="Frequently Asked Questions">FAQ</a>
-          <a href="https://cratery.cratera.org" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratery: Free Interactive Rust Learning Platform powered by Cratera Engine">CRATERY (FREE RUST LEARNING) ↗</a>
-          <a href="https://github.com/cratera-project/cratera" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratera Core Engine Repository">CORE ENGINE ↗</a>
-          <a href="https://crates.io/crates/cratera" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratera on Crates.io">CRATES.IO PACKAGES ↗</a>
-          <a href="https://github.com/cratera-project/website" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratera Website Repository">WEBSITE REPO ↗</a>
-          <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratera Zulip Community Chat">ZULIP CHAT ↗</a>
+          <div class="nav-heading">Documentation</div>
+          <a href="#overview" class="nav-item is-active" data-section="overview">Overview</a>
+          <a href="#specs" class="nav-item" data-section="specs">Specifications</a>
+          <a href="#architecture" class="nav-item" data-section="architecture">Architecture</a>
+          <a href="#security" class="nav-item" data-section="security">Security</a>
+          <a href="#quickstart" class="nav-item" data-section="quickstart">Quick start</a>
+          <a href="#api" class="nav-item" data-section="api">API</a>
+          <a href="#languages" class="nav-item" data-section="languages">Languages</a>
+          <a href="#deployment" class="nav-item" data-section="deployment">Deployment</a>
+          <a href="#showcase" class="nav-item" data-section="showcase">Built with Cratera</a>
+          <a href="#faq" class="nav-item" data-section="faq">FAQ</a>
+          
+          <div class="nav-divider"></div>
+          <div class="nav-heading">Links</div>
+          <a href="https://github.com/cratera-project/cratera" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratera Core Engine Repository">GitHub ↗</a>
+          <a href="https://cratery.cratera.org" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratery Interactive Rust Learning Platform">Cratery ↗</a>
+          <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="nav-item" title="Cratera Zulip Community Chat">Community ↗</a>
         </nav>
 
         <div class="sidebar-footer">
@@ -388,440 +242,389 @@
               <span class="meta-val">Rust 2024</span>
             </div>
             <div class="sidebar-meta-row">
-              <span class="meta-label">COMMUNITY</span>
-              <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="meta-link">cratera.zulipchat.com ↗</a>
+              <span class="meta-label">LICENSE</span>
+              <a href="https://github.com/cratera-project/cratera/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="meta-link">Apache-2.0</a>
             </div>
             <div class="sidebar-meta-row">
               <span class="meta-label">CONTACT</span>
               <a href="mailto:contact@cratera.org" class="meta-link">contact@cratera.org</a>
-            </div>
-            <div class="sidebar-meta-row">
-              <span class="meta-label">LICENSE</span>
-              <a href="https://github.com/cratera-project/cratera/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="meta-link">Apache-2.0</a>
             </div>
           </div>
         </div>
       </aside>
 
       <!-- ====================================================================
-           MAIN CONTENT VIEWPORT
+           MAIN CONTENT VIEWPORT (Centered & Constrained to Optimal Proportions)
            ==================================================================== -->
       <main class="main-viewport" id="main-content" role="main">
-        
-        <!-- HEADER HERO BLOCK -->
-        <section class="hero-block" id="overview" aria-labelledby="hero-main-title">
-          <h1 class="hero-title" id="hero-main-title">
-            CRATERA_V1.0_STABLE<span class="cursor-blink">_</span>
-          </h1>
-          <p class="hero-description">
-            Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute isolation. Built in Rust with Firecracker and Linux KVM for multi-tenant, untrusted code evaluation workloads.
-          </p>
-          <div class="repo-bar">
-            <div class="repo-link-group">
-              <span class="repo-tag">CORE ENGINE</span>
-              <a href="https://github.com/cratera-project/cratera" target="_blank" rel="noopener noreferrer" class="repo-url" id="repo-url-text">https://github.com/cratera-project/cratera</a>
+        <div class="content-container">
+          
+          <!-- HERO BLOCK -->
+          <section class="hero-block" id="overview" aria-labelledby="hero-title">
+            <div class="hero-title-row">
+              <h1 class="hero-title" id="hero-title">CRATERA</h1>
+              <span class="badge badge-orange">MicroVM Execution Engine</span>
             </div>
-            <button class="copy-btn" onclick="copyRepoUrl()" id="copy-btn" aria-label="Copy GitHub Repository URL">
-              <span>COPY</span>
-            </button>
-          </div>
-          <div class="repo-bar" style="margin-top: 8px;">
-            <div class="repo-link-group">
-              <span class="repo-tag" style="color: #059669; border-color: rgba(5, 150, 105, 0.4);">WEBSITE REPO</span>
-              <a href="https://github.com/cratera-project/website" target="_blank" rel="noopener noreferrer" class="repo-url">https://github.com/cratera-project/website</a>
-            </div>
-            <a href="https://github.com/cratera-project/website" target="_blank" rel="noopener noreferrer" class="copy-btn copy-btn-dark" style="text-decoration: none;" aria-label="Open Cratera Website Repository">
-              <span>VIEW REPO ↗</span>
-            </a>
-          </div>
-          <div class="repo-bar" style="margin-top: 8px;">
-            <div class="repo-link-group">
-              <span class="repo-tag" style="color: #6366f1; border-color: rgba(99, 102, 241, 0.4);">COMMUNITY</span>
-              <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="repo-url">https://cratera.zulipchat.com</a>
-            </div>
-            <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="copy-btn copy-btn-dark" style="text-decoration: none;" aria-label="Open Cratera Zulip Chat">
-              <span>JOIN ZULIP ↗</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- SECTION 1: SYSTEM SPECIFICATIONS -->
-        <section class="section-wrapper" id="specs" aria-labelledby="specs-heading">
-          <div class="section-header-bar">
-            <h2 id="specs-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// SYSTEM_SPECIFICATIONS</span>
-            </h2>
-            <div class="section-status-right">STATUS: VERIFIED</div>
-          </div>
-
-          <div class="telemetry-grid">
-            
-            <article class="telemetry-card">
-              <div class="card-top-corner"></div>
-              <h3 class="card-label">ISOLATION BOUNDARY</h3>
-              <div class="card-value-row">
-                <span class="card-big-value">KVM</span>
-                <span class="card-unit">/dev/kvm</span>
-              </div>
-              <div class="card-footer-note">Hardware Ring 3 isolation (Intel VT-x / AMD-V)</div>
-            </article>
-
-            <article class="telemetry-card">
-              <h3 class="card-label">SNAPSHOT RESTORE</h3>
-              <div class="card-value-row">
-                <span class="card-big-value">~5</span>
-                <span class="card-unit">ms</span>
-              </div>
-              <div class="card-footer-note">Bypasses guest Linux boot via memory snapshot</div>
-            </article>
-
-            <article class="telemetry-card">
-              <h3 class="card-label">NETWORK SECURITY</h3>
-              <div class="card-value-row">
-                <span class="card-big-value">ZERO-NIC</span>
-              </div>
-              <div class="card-footer-note">No virtual eth devices + systemd eBPF IP deny</div>
-            </article>
-
-            <article class="telemetry-card">
-              <h3 class="card-label">RAM WORKSPACE</h3>
-              <div class="card-value-row">
-                <span class="card-big-value">256</span>
-                <span class="card-unit">MiB tmpfs</span>
-              </div>
-              <div class="card-footer-note">100% in-memory /tmp, zero persistent disk writes</div>
-            </article>
-
-            <article class="telemetry-card">
-              <h3 class="card-label">EXECUTION PROFILING</h3>
-              <div class="card-value-row">
-                <span class="card-big-value">μs</span>
-                <span class="card-unit">Monotonic</span>
-              </div>
-              <div class="card-footer-note">In-guest monotonic timing &amp; live RssAnon sampling</div>
-            </article>
-
-            <article class="telemetry-card">
-              <h3 class="card-label">TOOLCHAIN MANIFEST</h3>
-              <div class="card-value-row">
-                <span class="card-big-value">30</span>
-                <span class="card-unit">Languages</span>
-              </div>
-              <div class="card-footer-note">Declarative languages.toml manifest</div>
-            </article>
-
-          </div>
-
-          <!-- DARK SYS_INFO TERMINAL BOX -->
-          <div class="sys-info-box">
-            <div class="sys-info-tab">SYS_INFO</div>
-            <div class="sys-info-content">
-              
-              <div class="sys-col">
-                <h3 class="sys-col-title">// HOST REQUIREMENTS</h3>
-                <ul class="sys-list">
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">Linux Kernel 5.10+</strong> <span class="sys-text-dim">with /dev/kvm virtualization</span></span>
-                  </li>
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">CPU Architecture:</strong> <span class="sys-text-dim">x86_64 or aarch64 (ARM64)</span></span>
-                  </li>
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">cgroups v2:</strong> <span class="sys-text-dim">Unified hierarchy (memory, pids controllers)</span></span>
-                  </li>
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">Firecracker Jailer:</strong> <span class="sys-text-dim">UID/GID 20001, PR_SET_NO_NEW_PRIVS</span></span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="sys-col">
-                <h3 class="sys-col-title">// GUEST ENVIRONMENT</h3>
-                <ul class="sys-list">
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">Linux Kernel:</strong> <span class="sys-text-dim">Minimal microVM kernel (vmlinux.bin)</span></span>
-                  </li>
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">Rootfs Image:</strong> <span class="sys-text-dim">Read-only SquashFS / ext4 filesystem</span></span>
-                  </li>
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">cratera-agent:</strong> <span class="sys-text-dim">In-guest PID 1 supervisor process</span></span>
-                  </li>
-                  <li class="sys-item">
-                    <span class="sys-bullet">[*]</span>
-                    <span><strong class="sys-text-strong">Host IPC:</strong> <span class="sys-text-dim">AF_VSOCK (Port 52) point-to-point stream</span></span>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-        </section>
-
-        <!-- SECTION 2: ARCHITECTURE PIPELINE -->
-        <section class="section-wrapper" id="architecture" aria-labelledby="arch-heading">
-          <div class="section-header-bar">
-            <h2 id="arch-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// ARCHITECTURE_PIPELINE</span>
-            </h2>
-            <div class="section-status-right">6_STAGE_ISOLATION</div>
-          </div>
-
-          <div class="arch-stack-list">
-            
-            <article class="arch-layer-card">
-              <div class="arch-num">01_HOST</div>
-              <div class="arch-name-col">
-                <h3 class="arch-title">Ingestion Coordinator</h3>
-                <span>Host Space (Axum)</span>
-              </div>
-              <div class="arch-desc-col">
-                Listens on <code>127.0.0.1:3100</code>, validates Bearer token authentication, performs multi-language harness splicing, and coordinates an async worker slot pool with fast snapshot restore.
-              </div>
-            </article>
-
-            <article class="arch-layer-card">
-              <div class="arch-num">02_JAIL</div>
-              <div class="arch-name-col">
-                <h3 class="arch-title">Firecracker Jailer</h3>
-                <span>Host Privilege Barrier</span>
-              </div>
-              <div class="arch-desc-col">
-                Drops root to unprivileged <code>UID/GID 20001</code>, applies <code>PR_SET_NO_NEW_PRIVS</code>, locks down dedicated chroot <code>/srv/jailer/firecracker/&lt;id&gt;</code>, and attaches cgroups v2.
-              </div>
-            </article>
-
-            <article class="arch-layer-card">
-              <div class="arch-num">03_VMM</div>
-              <div class="arch-name-col">
-                <h3 class="arch-title">KVM Hardware Boundary</h3>
-                <span>Hypervisor Core</span>
-              </div>
-              <div class="arch-desc-col">
-                Interacts with Linux <code>/dev/kvm</code> ioctls to execute untrusted code in hardware CPU Ring 3. Restores memory snapshot in <code>~5ms</code> with zero kernel boot latency.
-              </div>
-            </article>
-
-            <article class="arch-layer-card">
-              <div class="arch-num">04_INIT</div>
-              <div class="arch-name-col">
-                <h3 class="arch-title">cratera-agent (PID 1)</h3>
-                <span>Guest Space Init</span>
-              </div>
-              <div class="arch-desc-col">
-                Serves as guest init process. Mounts ephemeral <code>256 MiB tmpfs</code> in RAM, enforces Zero-NIC network denial, and communicates exclusively over virtual sockets.
-              </div>
-            </article>
-
-            <article class="arch-layer-card">
-              <div class="arch-num">05_SAND</div>
-              <div class="arch-name-col">
-                <h3 class="arch-title">Toolchain Sandbox</h3>
-                <span>Compiler &amp; Runtime</span>
-              </div>
-              <div class="arch-desc-col">
-                Executes compilers from <code>languages.toml</code> with strict POSIX <code>RLIMIT_CPU</code>, <code>RLIMIT_NPROC</code> (fork-bomb guard), and a kernel SIGKILL watchdog.
-              </div>
-            </article>
-
-            <article class="arch-layer-card">
-              <div class="arch-num">06_IPC</div>
-              <div class="arch-name-col">
-                <h3 class="arch-title">Precision Telemetry</h3>
-                <span>Guest-Host Stream</span>
-              </div>
-              <div class="arch-desc-col">
-                Measures in-guest monotonic execution duration in microseconds and samples live <code>RssAnon</code> memory at 200μs intervals from <code>/proc/[pid]/status</code> before returning structured JSON verdicts over <code>AF_VSOCK:52</code>.
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- SECTION 3: INTERACTIVE COMMAND CENTER -->
-        <section class="section-wrapper" id="command-center" aria-labelledby="tui-heading">
-          <div class="section-header-bar">
-            <h2 id="tui-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// COMMAND_CENTER_TUI</span>
-            </h2>
-            <div class="section-status-right">cratera (standalone binary)</div>
-          </div>
-
-          <div class="tui-box" role="region" aria-label="Interactive Command Center Terminal Output">╭─────────────────────────────────────────────────────────────╮
-│             <span class="tui-accent">CRATERA INTERACTIVE COMMAND CENTER</span>              │
-│     Hardware MicroVM Isolation &amp; Multi-Language Sandbox     │
-│           Systemd: <span class="tui-green">●</span> Service Active &amp; Supervised            │
-╰─────────────────────────────────────────────────────────────╯
-
-  <span class="tui-orange">[1]</span> System Diagnostics &amp; Health Check (/dev/kvm, Jailer, storage, kernel)
-  <span class="tui-orange">[2]</span> Multi-Language Toolchains Manager (Toggle 30 languages, apply presets)
-  <span class="tui-orange">[3]</span> Resource Budgets &amp; Limits Editor (vCPU, RAM, cgroups, timeouts)
-  <span class="tui-orange">[4]</span> In-Guest MicroVM Smoke Tester (Measure microsecond execution)
-  <span class="tui-orange">[5]</span> Build / Rebuild Guest Rootfs Image (SquashFS / ext4)
-  <span class="tui-orange">[6]</span> Start / Stop Local Dev Server [Active on 127.0.0.1:3100]
-  <span class="tui-orange">[7]</span> Systemd Service Manager [Active &amp; Running]
-  <span class="tui-orange">[0]</span> Exit Command Center</div>
-        </section>
-
-        <!-- SECTION 4: 30 SUPPORTED LANGUAGES -->
-        <section class="section-wrapper" id="languages" aria-labelledby="lang-heading">
-          <div class="section-header-bar">
-            <h2 id="lang-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// 30_TOOLCHAINS_MANIFEST</span>
-            </h2>
-            <div class="section-status-right">languages.toml</div>
-          </div>
-
-          <div class="table-controls">
-            <input type="text" id="lang-filter" class="search-input" placeholder="Search 30 languages (e.g. rust, go, python)..." aria-label="Search 30 supported languages by keyword" oninput="filterLanguages()" />
-            <div style="font-size: 11px; color: var(--text-dim);">SINGLE SOURCE OF TRUTH • NO RECOMPILATION</div>
-          </div>
-
-          <div class="lang-table-container">
-            <table class="lang-table" id="lang-table">
-              <caption class="sr-only">Cratera 30 Supported Programming Languages and Runtime Configurations</caption>
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Key</th>
-                  <th scope="col">Language</th>
-                  <th scope="col">Compile Command</th>
-                  <th scope="col">Run Command</th>
-                  <th scope="col">Install Strategy</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>01</td><td class="lang-key">rust</td><td>Rust 2024</td><td><code>rustc --edition 2024 -C opt-level=2 ...</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>02</td><td class="lang-key">python</td><td>Python 3</td><td>-</td><td><code>python3 {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>03</td><td class="lang-key">node</td><td>JavaScript (Node 24)</td><td>-</td><td><code>node {file}</code></td><td class="lang-strategy">docker_image</td></tr>
-                <tr><td>04</td><td class="lang-key">typescript</td><td>TypeScript</td><td><code>esbuild {file} --bundle ...</code></td><td><code>node /tmp/job.js</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>05</td><td class="lang-key">cpp</td><td>C++ (C++20)</td><td><code>g++ -O3 -std=c++20 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>06</td><td class="lang-key">c</td><td>C (C17)</td><td><code>gcc -O3 -std=c17 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>07</td><td class="lang-key">go</td><td>Go 1.24</td><td><code>go build -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>08</td><td class="lang-key">zig</td><td>Zig 0.14</td><td><code>zig build-exe -O ReleaseFast {file} ...</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>09</td><td class="lang-key">java</td><td>Java (OpenJDK 21)</td><td><code>javac -d /tmp {file}</code></td><td><code>java -cp /tmp Solution</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>10</td><td class="lang-key">swift</td><td>Swift 6.0</td><td><code>swiftc -O -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">docker_image</td></tr>
-                <tr><td>11</td><td class="lang-key">csharp</td><td>C# (Mono)</td><td><code>mcs -out:/tmp/job.exe {file}</code></td><td><code>mono /tmp/job.exe</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>12</td><td class="lang-key">kotlin</td><td>Kotlin 2.1</td><td><code>kotlinc {file} -include-runtime -d ...</code></td><td><code>java -jar /tmp/job.jar</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>13</td><td class="lang-key">scala</td><td>Scala 3.6</td><td><code>scalac -d /tmp/classes {file}</code></td><td><code>scala -cp /tmp/classes Solution</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>14</td><td class="lang-key">ruby</td><td>Ruby 3.3</td><td>-</td><td><code>ruby {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>15</td><td class="lang-key">php</td><td>PHP 8.3</td><td>-</td><td><code>php {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>16</td><td class="lang-key">julia</td><td>Julia 1.11</td><td>-</td><td><code>julia {file}</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>17</td><td class="lang-key">haskell</td><td>Haskell (GHC 9.6)</td><td><code>ghc -O2 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>18</td><td class="lang-key">lua</td><td>Lua 5.4</td><td>-</td><td><code>lua5.4 {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>19</td><td class="lang-key">perl</td><td>Perl 5.38</td><td>-</td><td><code>perl {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>20</td><td class="lang-key">r</td><td>R 4.4</td><td>-</td><td><code>Rscript {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>21</td><td class="lang-key">dart</td><td>Dart 3.6</td><td><code>dart compile exe {file} -o /tmp/job</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">docker_image</td></tr>
-                <tr><td>22</td><td class="lang-key">elixir</td><td>Elixir 1.17</td><td>-</td><td><code>elixir {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>23</td><td class="lang-key">erlang</td><td>Erlang (OTP 27)</td><td><code>erlc -o /tmp {file}</code></td><td><code>erl -noshell -pa /tmp -s solution start</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>24</td><td class="lang-key">ocaml</td><td>OCaml 5.1</td><td><code>ocamlopt -O3 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>25</td><td class="lang-key">clojure</td><td>Clojure</td><td>-</td><td><code>clojure -M {file}</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>26</td><td class="lang-key">fsharp</td><td>F# (.NET / Mono)</td><td><code>fsharpc --out:/tmp/job.exe {file}</code></td><td><code>mono /tmp/job.exe</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>27</td><td class="lang-key">d</td><td>D (DMD)</td><td><code>dmd -O -release -of=/tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>28</td><td class="lang-key">nim</td><td>Nim 2.0</td><td><code>nim c -d:release --out:/tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
-                <tr><td>29</td><td class="lang-key">fortran</td><td>Fortran (GFortran)</td><td><code>gfortran -O3 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
-                <tr><td>30</td><td class="lang-key">bash</td><td>GNU Bash 5.2</td><td>-</td><td><code>bash {file}</code></td><td class="lang-strategy">apt_core</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- EXTENSIBILITY GUIDE: ADDING A NEW LANGUAGE -->
-          <div style="margin-top: 18px; border: 1px solid var(--border-color); background-color: var(--bg-card); padding: 22px 24px;">
-            <h3 style="font-weight: 800; font-size: 13.5px; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-              <span style="color: var(--accent-orange);">&gt;</span>
-              <span>ADDING A NEW LANGUAGE (ZERO ENGINE RECOMPILATION)</span>
-            </h3>
-            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
-              Cratera makes adding new programming languages and custom toolchains effortless. Rather than hardcoding compiler pipelines into the Rust hypervisor engine, all toolchains are defined declaratively in <code>languages.toml</code>. Cratera provides <strong>4 flexible installation strategies</strong> so any runtime can be integrated in under 60 seconds:
+            <p class="hero-tagline">
+              Hardware-isolated code execution with Firecracker and Linux KVM.
             </p>
-
-            <div class="extensibility-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 16px; font-size: 12px;">
-              <div style="background: var(--bg-card-alt); border: 1px solid var(--border-muted); padding: 10px 12px;">
-                <strong style="color: var(--text-main); display: block; margin-bottom: 2px;">1. <code>install = "curl_tar"</code></strong>
-                <span style="color: var(--text-dim);">Directly downloads and extracts standalone binary release archives (e.g. Zig, Julia, Gleam).</span>
-              </div>
-              <div style="background: var(--bg-card-alt); border: 1px solid var(--border-muted); padding: 10px 12px;">
-                <strong style="color: var(--text-main); display: block; margin-bottom: 2px;">2. <code>install = "docker_image"</code></strong>
-                <span style="color: var(--text-dim);">Extracts compiler binaries directly from official Docker Hub / OCI images (e.g. Node, Swift, Dart).</span>
-              </div>
-              <div style="background: var(--bg-card-alt); border: 1px solid var(--border-muted); padding: 10px 12px;">
-                <strong style="color: var(--text-main); display: block; margin-bottom: 2px;">3. <code>install = "apt_core"</code></strong>
-                <span style="color: var(--text-dim);">Installs standard compiler packages directly via apt from Ubuntu repositories (e.g. GCC, Python, Java).</span>
-              </div>
-              <div style="background: var(--bg-card-alt); border: 1px solid var(--border-muted); padding: 10px 12px;">
-                <strong style="color: var(--text-main); display: block; margin-bottom: 2px;">4. <code>install = "docker_image_base"</code></strong>
-                <span style="color: var(--text-dim);">Uses an official image directly as the base rootfs build layer for maximum compatibility.</span>
-              </div>
+            <p class="hero-description">
+              Run untrusted programs in ephemeral Linux microVMs with separate guest kernels, no guest network interface, and configurable CPU, memory, and process limits.
+            </p>
+            
+            <div class="hero-actions">
+              <a href="https://github.com/cratera-project/cratera" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                View on GitHub ↗
+              </a>
+              <a href="#quickstart" class="btn btn-secondary">
+                Quick start
+              </a>
             </div>
 
-            <div class="code-window" style="margin-bottom: 0;">
+            <div class="hero-badges">
+              <span class="hero-badge-item">Rust 2024</span>
+              <span class="hero-badge-dot">•</span>
+              <span class="hero-badge-item">Firecracker</span>
+              <span class="hero-badge-dot">•</span>
+              <span class="hero-badge-item">Linux KVM</span>
+              <span class="hero-badge-dot">•</span>
+              <span class="hero-badge-item">Jailer</span>
+              <span class="hero-badge-dot">•</span>
+              <span class="hero-badge-item">Apache-2.0</span>
+            </div>
+          </section>
+
+          <!-- SECTION 1: SPECIFICATIONS -->
+          <section class="section-wrapper" id="specs" aria-labelledby="specs-heading">
+            <div class="section-header-bar">
+              <h2 id="specs-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Specifications</span>
+              </h2>
+              <div class="section-status-right">System Metrics</div>
+            </div>
+
+            <div class="telemetry-grid">
+              <article class="telemetry-card">
+                <h3 class="card-label">Isolation</h3>
+                <div class="card-value-row">
+                  <span class="card-big-value">KVM</span>
+                  <span class="card-unit">/dev/kvm</span>
+                </div>
+                <div class="card-footer-note">Separate guest kernel via KVM</div>
+              </article>
+
+              <article class="telemetry-card">
+                <h3 class="card-label">Snapshot restore</h3>
+                <div class="card-value-row">
+                  <span class="card-big-value">~5</span>
+                  <span class="card-unit">ms</span>
+                </div>
+                <div class="card-footer-note">Bypasses guest Linux boot via memory snapshot</div>
+              </article>
+
+              <article class="telemetry-card">
+                <h3 class="card-label">Network</h3>
+                <div class="card-value-row">
+                  <span class="card-big-value">No NIC</span>
+                </div>
+                <div class="card-footer-note">MicroVMs start with no virtual network devices</div>
+              </article>
+
+              <article class="telemetry-card">
+                <h3 class="card-label">Workspace</h3>
+                <div class="card-value-row">
+                  <span class="card-big-value">256</span>
+                  <span class="card-unit">MiB tmpfs</span>
+                </div>
+                <div class="card-footer-note">In-memory /tmp, zero persistent disk writes</div>
+              </article>
+
+              <article class="telemetry-card">
+                <h3 class="card-label">Execution metrics</h3>
+                <div class="card-value-row">
+                  <span class="card-big-value">μs</span>
+                  <span class="card-unit">Monotonic</span>
+                </div>
+                <div class="card-footer-note">In-guest monotonic timing &amp; live RssAnon sampling</div>
+              </article>
+
+              <article class="telemetry-card">
+                <h3 class="card-label">Languages</h3>
+                <div class="card-value-row">
+                  <span class="card-big-value">30</span>
+                  <span class="card-unit">Toolchains</span>
+                </div>
+                <div class="card-footer-note">Defined in languages.toml manifest</div>
+              </article>
+            </div>
+
+            <!-- SYSTEM INFO BOX -->
+            <div class="sys-info-box">
+              <div class="sys-info-content">
+                <div class="sys-col">
+                  <h3 class="sys-col-title">Host Requirements</h3>
+                  <ul class="sys-list">
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">Linux Kernel 5.10+</strong> <span class="sys-text-dim">with /dev/kvm virtualization</span></span>
+                    </li>
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">CPU Architecture:</strong> <span class="sys-text-dim">x86_64 or aarch64 (ARM64)</span></span>
+                    </li>
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">cgroups v2:</strong> <span class="sys-text-dim">Unified hierarchy (memory, pids controllers)</span></span>
+                    </li>
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">Firecracker Jailer:</strong> <span class="sys-text-dim">UID/GID 20001, PR_SET_NO_NEW_PRIVS</span></span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="sys-col">
+                  <h3 class="sys-col-title">Guest Environment</h3>
+                  <ul class="sys-list">
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">Linux Kernel:</strong> <span class="sys-text-dim">Minimal microVM kernel (vmlinux.bin)</span></span>
+                    </li>
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">Rootfs Image:</strong> <span class="sys-text-dim">Read-only SquashFS / ext4 filesystem</span></span>
+                    </li>
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">cratera-agent:</strong> <span class="sys-text-dim">In-guest PID 1 supervisor process</span></span>
+                    </li>
+                    <li class="sys-item">
+                      <span class="sys-bullet">[*]</span>
+                      <span><strong class="sys-text-strong">Host IPC:</strong> <span class="sys-text-dim">AF_VSOCK (Port 52) point-to-point stream</span></span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 2: ARCHITECTURE -->
+          <section class="section-wrapper" id="architecture" aria-labelledby="arch-heading">
+            <div class="section-header-bar">
+              <h2 id="arch-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Architecture</span>
+              </h2>
+              <div class="section-status-right">Isolation Model</div>
+            </div>
+
+            <!-- ARCHITECTURE FLOW DIAGRAM -->
+            <div class="arch-diagram-box" role="region" aria-label="Cratera Isolation Model Architecture Diagram">
+              <pre class="arch-diagram"><code>Host
+  │
+  ├── <span class="hl-accent">Cratera coordinator</span> <span class="hl-dim">(Axum, 127.0.0.1:3100)</span>
+  │
+  ├── <span class="hl-accent">Firecracker Jailer</span>
+  │     ├── privilege drop <span class="hl-dim">(UID/GID 20001)</span>
+  │     ├── chroot <span class="hl-dim">(/srv/jailer/firecracker/&lt;id&gt;)</span>
+  │     └── cgroups v2 resource limits
+  │
+  └── <span class="hl-accent">Linux KVM</span> <span class="hl-dim">(/dev/kvm)</span>
+        │
+        ▼
+     <span class="hl-orange">Guest kernel</span> <span class="hl-dim">(vmlinux.bin)</span>
+        │
+        ├── <span class="hl-accent">cratera-agent</span> <span class="hl-dim">(PID 1 supervisor)</span>
+        ├── <span class="hl-accent">tmpfs workspace</span> <span class="hl-dim">(/tmp, 256 MiB RAM)</span>
+        ├── <span class="hl-accent">compiler &amp; runtime sandbox</span>
+        └── <span class="hl-accent">AF_VSOCK:52</span> <span class="hl-dim">(point-to-point IPC)</span></code></pre>
+            </div>
+
+            <div class="security-grid">
+              <article class="security-card">
+                <h3 class="security-title">Host Coordinator</h3>
+                <p class="security-desc">
+                  Listens on <code>127.0.0.1:3100</code>, validates Bearer token authentication, manages worker slot pools, and orchestrates fast snapshot restores.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Firecracker Jailer</h3>
+                <p class="security-desc">
+                  Drops privileges to <code>UID/GID 20001</code>, applies <code>PR_SET_NO_NEW_PRIVS</code>, sets up a dedicated chroot, and binds to cgroups v2.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">KVM Boundary</h3>
+                <p class="security-desc">
+                  Provides hardware virtualization. Workloads execute inside an independent guest kernel with isolated address spaces and CPU state.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Guest Agent (PID 1)</h3>
+                <p class="security-desc">
+                  Serves as the guest init process, mounts an ephemeral <code>256 MiB tmpfs</code> in RAM, and communicates strictly over point-to-point virtual sockets.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Toolchain Sandbox</h3>
+                <p class="security-desc">
+                  Compiles and executes code using configurations from <code>languages.toml</code> with POSIX <code>RLIMIT_CPU</code>, <code>RLIMIT_NPROC</code>, and watchdog timers.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Telemetry Stream</h3>
+                <p class="security-desc">
+                  Measures in-guest monotonic execution time in microseconds and samples live <code>RssAnon</code> memory at 200μs intervals over <code>AF_VSOCK:52</code>.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION 3: SECURITY MODEL -->
+          <section class="section-wrapper" id="security" aria-labelledby="sec-heading">
+            <div class="section-header-bar">
+              <h2 id="sec-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Security</span>
+              </h2>
+              <div class="section-status-right">Defense-in-Depth</div>
+            </div>
+
+            <div class="callout callout-info">
+              <div class="callout-title">Defense-in-depth isolation boundary</div>
+              <p>
+                Cratera removes the shared-host-kernel isolation model used by traditional containers and adds the KVM/Firecracker microVM boundary as the primary workload isolation layer. Layered host containment (Jailer, seccomp, cgroups v2, and network isolation) provides additional protection against hostile payloads.
+              </p>
+            </div>
+
+            <div class="security-grid">
+              <article class="security-card">
+                <h3 class="security-title">Separate guest kernel</h3>
+                <p class="security-desc">
+                  Each execution runs inside a dedicated microVM rather than a container sharing the host kernel. Workloads interact only with their private guest kernel.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Jailer containment</h3>
+                <p class="security-desc">
+                  Firecracker runs under the unprivileged Jailer with UID/GID 20001, dedicated chroot filesystem isolation, and restrictive seccomp filters.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">No guest network interface</h3>
+                <p class="security-desc">
+                  MicroVMs are started without a virtual NIC (no tap/tun, no eth0). The systemd deployment also applies <code>IPAddressDeny=any</code> at the host service boundary.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Resource bounds</h3>
+                <p class="security-desc">
+                  CPU time, process counts (<code>RLIMIT_NPROC</code> fork-bomb guard), and memory allocations are strictly bounded per execution with a SIGKILL watchdog.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION 4: QUICKSTART -->
+          <section class="section-wrapper" id="quickstart" aria-labelledby="quickstart-heading">
+            <div class="section-header-bar">
+              <h2 id="quickstart-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Quick start</span>
+              </h2>
+              <div class="section-status-right">Setup &amp; Run</div>
+            </div>
+
+            <div class="quickstart-steps">
+              <article class="quickstart-step">
+                <div class="step-head">
+                  <span class="step-num">01.</span>
+                  <h3 class="step-title">Clone repository</h3>
+                </div>
+                <p class="step-desc">Clone the open-source repository from GitHub:</p>
+                <div class="step-cmd">
+                  <code id="step1-cmd">git clone https://github.com/cratera-project/cratera.git &amp;&amp; cd cratera</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step1-cmd')" aria-label="Copy clone repository command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </article>
+
+              <article class="quickstart-step">
+                <div class="step-head">
+                  <span class="step-num">02.</span>
+                  <h3 class="step-title">Install dependencies</h3>
+                </div>
+                <p class="step-desc">Run the setup script or install the crate via Cargo:</p>
+                <div class="step-cmd">
+                  <code id="step2-cmd" data-copy="./scripts/install.sh">./scripts/install.sh  # or: cargo install cratera</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step2-cmd')" aria-label="Copy install script command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </article>
+
+              <article class="quickstart-step">
+                <div class="step-head">
+                  <span class="step-num">03.</span>
+                  <h3 class="step-title">Verify host environment</h3>
+                </div>
+                <p class="step-desc">Verify <code>/dev/kvm</code> permissions, cgroups v2, and Jailer configuration:</p>
+                <div class="step-cmd">
+                  <code id="step3-cmd">cratera doctor</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step3-cmd')" aria-label="Copy cratera doctor command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </article>
+
+              <article class="quickstart-step">
+                <div class="step-head">
+                  <span class="step-num">04.</span>
+                  <h3 class="step-title">Execute test workload</h3>
+                </div>
+                <p class="step-desc">Submit a test evaluation in Rust, Python, C++, or any of the 30 toolchains:</p>
+                <div class="step-cmd">
+                  <code id="step4-cmd" data-copy="cratera test rust">cratera test rust  # or: ./examples/submit.sh python</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step4-cmd')" aria-label="Copy test execution command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- SECTION 5: HTTP API SPEC -->
+          <section class="section-wrapper" id="api" aria-labelledby="api-heading">
+            <div class="section-header-bar">
+              <h2 id="api-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>API</span>
+              </h2>
+              <div class="section-status-right">POST /harness</div>
+            </div>
+
+            <div class="code-window">
               <div class="code-header">
-                <span>Example: Adding Gleam to languages.toml in 8 lines</span>
+                <span>cURL Request Example</span>
                 <div style="display: flex; align-items: center; gap: 10px;">
-                  <span>languages.toml</span>
-                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'toml-example-code')" aria-label="Copy Gleam languages.toml configuration snippet">
-                    <span>COPY</span>
+                  <span>HTTP/1.1 :3100</span>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'curl-req-code')" aria-label="Copy cURL Request Example">
+                    <span>Copy</span>
                   </button>
                 </div>
               </div>
               <div class="code-content">
-                <pre><code id="toml-example-code"># Add to languages.toml - No Rust engine recompilation required
-[gleam]
-enabled = true
-name = "Gleam"
-source = "main.gleam"
-compile = "gleam build --target=erlang"
-run = "gleam run"
-install = "curl_tar"
-source_url = "https://github.com/gleam-lang/gleam/releases/download/v1.8.1/gleam-v1.8.1-x86_64-unknown-linux-musl.tar.gz"</code></pre>
-              </div>
-            </div>
-
-            <div style="margin-top: 12px; font-size: 12px; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-              <span>After editing <code>languages.toml</code>, bake the runtime into the guest VM rootfs:</span>
-              <div class="step-cmd" style="padding: 6px 10px; margin: 0; font-size: 11px;">
-                <code id="build-rootfs-cmd" data-copy="./scripts/build-rootfs.sh">./scripts/build-rootfs.sh  # or select [5] in cratera TUI</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'build-rootfs-cmd')" aria-label="Copy rootfs build command">
-                  <span>COPY</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- SECTION 5: HTTP API SPEC -->
-        <section class="section-wrapper" id="api" aria-labelledby="api-heading">
-          <div class="section-header-bar">
-            <h2 id="api-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// HTTP_API_SPECIFICATION</span>
-            </h2>
-            <div class="section-status-right">POST /harness</div>
-          </div>
-
-          <div class="code-window">
-            <div class="code-header">
-              <span>cURL Request Example</span>
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <span>HTTP/1.1 :3100</span>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'curl-req-code')" aria-label="Copy cURL Request Example">
-                  <span>COPY</span>
-                </button>
-              </div>
-            </div>
-            <div class="code-content">
-              <pre><code id="curl-req-code">curl -s -X POST http://127.0.0.1:3100/harness \
+                <pre><code id="curl-req-code">curl -s -X POST http://127.0.0.1:3100/harness \
   -H "Authorization: Bearer &lt;api-key&gt;" \
   -H "Content-Type: application/json" \
   -d '{
@@ -829,21 +632,21 @@ source_url = "https://github.com/gleam-lang/gleam/releases/download/v1.8.1/gleam
     "code": "fn main() { println!(\"Hello from isolated microVM!\"); }",
     "mode": "submit"
   }'</code></pre>
-            </div>
-          </div>
-
-          <div class="code-window">
-            <div class="code-header">
-              <span>JSON Response Payload</span>
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <span>application/json</span>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'json-resp-code')" aria-label="Copy JSON Response Payload">
-                  <span>COPY</span>
-                </button>
               </div>
             </div>
-            <div class="code-content">
-              <pre><code id="json-resp-code">{
+
+            <div class="code-window">
+              <div class="code-header">
+                <span>JSON Response Payload</span>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span>application/json</span>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'json-resp-code')" aria-label="Copy JSON Response Payload">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </div>
+              <div class="code-content">
+                <pre><code id="json-resp-code">{
   "compilationSuccess": true,
   "passed": true,
   "status": "Passed",
@@ -856,143 +659,222 @@ source_url = "https://github.com/gleam-lang/gleam/releases/download/v1.8.1/gleam
   "wallMs": 510,
   "restored": true
 }</code></pre>
+              </div>
             </div>
-          </div>
 
-          <!-- VERDICT MATRIX -->
-          <div class="verdict-grid">
-            <article class="verdict-box">
-              <div class="verdict-code">AC</div>
-              <h3 class="verdict-title">Accepted</h3>
-              <div class="verdict-desc">Test passed, exit code 0.</div>
-            </article>
-            <article class="verdict-box">
-              <div class="verdict-code">WA</div>
-              <h3 class="verdict-title">Wrong Answer</h3>
-              <div class="verdict-desc">Assertion / test failure.</div>
-            </article>
-            <article class="verdict-box">
-              <div class="verdict-code">CE</div>
-              <h3 class="verdict-title">Compilation Error</h3>
-              <div class="verdict-desc">Compiler error stream.</div>
-            </article>
-            <article class="verdict-box">
-              <div class="verdict-code">TLE</div>
-              <h3 class="verdict-title">Time Limit Exceeded</h3>
-              <div class="verdict-desc">Execution timeout tripped.</div>
-            </article>
-            <article class="verdict-box">
-              <div class="verdict-code">MLE</div>
-              <h3 class="verdict-title">Memory Limit Exceeded</h3>
-              <div class="verdict-desc">OOM or cgroup cap hit.</div>
-            </article>
-            <article class="verdict-box">
-              <div class="verdict-code">RE</div>
-              <h3 class="verdict-title">Runtime Error</h3>
-              <div class="verdict-desc">SIGSEGV / panic / crash.</div>
-            </article>
-            <article class="verdict-box">
-              <div class="verdict-code">IE</div>
-              <h3 class="verdict-title">Internal Error</h3>
-              <div class="verdict-desc">Hypervisor fault.</div>
-            </article>
-          </div>
-        </section>
+            <!-- VERDICT MATRIX -->
+            <div class="verdict-grid">
+              <article class="verdict-box">
+                <div class="verdict-code">AC</div>
+                <h3 class="verdict-title">Accepted</h3>
+                <div class="verdict-desc">Test passed, exit code 0.</div>
+              </article>
+              <article class="verdict-box">
+                <div class="verdict-code">WA</div>
+                <h3 class="verdict-title">Wrong Answer</h3>
+                <div class="verdict-desc">Assertion / test failure.</div>
+              </article>
+              <article class="verdict-box">
+                <div class="verdict-code">CE</div>
+                <h3 class="verdict-title">Compilation Error</h3>
+                <div class="verdict-desc">Compiler error stream.</div>
+              </article>
+              <article class="verdict-box">
+                <div class="verdict-code">TLE</div>
+                <h3 class="verdict-title">Time Limit Exceeded</h3>
+                <div class="verdict-desc">Execution timeout tripped.</div>
+              </article>
+              <article class="verdict-box">
+                <div class="verdict-code">MLE</div>
+                <h3 class="verdict-title">Memory Limit Exceeded</h3>
+                <div class="verdict-desc">OOM or cgroup cap hit.</div>
+              </article>
+              <article class="verdict-box">
+                <div class="verdict-code">RE</div>
+                <h3 class="verdict-title">Runtime Error</h3>
+                <div class="verdict-desc">SIGSEGV / panic / crash.</div>
+              </article>
+              <article class="verdict-box">
+                <div class="verdict-code">IE</div>
+                <h3 class="verdict-title">Internal Error</h3>
+                <div class="verdict-desc">Hypervisor fault.</div>
+              </article>
+            </div>
+          </section>
 
-        <!-- SECTION 6: DEVELOPER QUICKSTART -->
-        <section class="section-wrapper" id="quickstart" aria-labelledby="quickstart-heading">
-          <div class="section-header-bar">
-            <h2 id="quickstart-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// DEVELOPER_QUICKSTART</span>
-            </h2>
-            <div class="section-status-right">BUILD &amp; RUN</div>
-          </div>
+          <!-- SECTION 6: SUPPORTED LANGUAGES -->
+          <section class="section-wrapper" id="languages" aria-labelledby="lang-heading">
+            <div class="section-header-bar">
+              <h2 id="lang-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Languages</span>
+              </h2>
+              <div class="section-status-right">30 Toolchains</div>
+            </div>
 
-          <div class="quickstart-steps">
-            
-            <article class="quickstart-step">
-              <div class="step-head">
-                <span class="step-num">01.</span>
-                <h3 class="step-title">Clone Repository</h3>
-              </div>
-              <p class="step-desc">Clone the official open-source repository from GitHub:</p>
-              <div class="step-cmd">
-                <code id="step1-cmd">git clone https://github.com/cratera-project/cratera.git &amp;&amp; cd cratera</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step1-cmd')" aria-label="Copy clone repository command">
-                  <span>COPY</span>
-                </button>
-              </div>
-            </article>
+            <div class="table-controls">
+              <input type="text" id="lang-filter" class="search-input" placeholder="Filter languages (e.g. rust, go, python)..." aria-label="Filter 30 supported languages by keyword" oninput="filterLanguages()" />
+              <div class="badge">languages.toml</div>
+            </div>
 
-            <article class="quickstart-step">
-              <div class="step-head">
-                <span class="step-num">02.</span>
-                <h3 class="step-title">Interactive Setup or Cargo Install</h3>
-              </div>
-              <p class="step-desc">Run the interactive setup script or install the binary via Cargo:</p>
-              <div class="step-cmd">
-                <code id="step2-cmd" data-copy="./scripts/install.sh">./scripts/install.sh  # or: cargo install cratera</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step2-cmd')" aria-label="Copy install script command">
-                  <span>COPY</span>
-                </button>
-              </div>
-            </article>
+            <div class="lang-table-container">
+              <table class="lang-table" id="lang-table">
+                <caption class="sr-only">Cratera 30 Supported Programming Languages and Runtime Configurations</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Key</th>
+                    <th scope="col">Language</th>
+                    <th scope="col">Compile Command</th>
+                    <th scope="col">Run Command</th>
+                    <th scope="col">Install Strategy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>01</td><td class="lang-key">rust</td><td>Rust 2024</td><td><code>rustc --edition 2024 -C opt-level=2 ...</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>02</td><td class="lang-key">python</td><td>Python 3</td><td>-</td><td><code>python3 {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>03</td><td class="lang-key">node</td><td>JavaScript (Node 24)</td><td>-</td><td><code>node {file}</code></td><td class="lang-strategy">docker_image</td></tr>
+                  <tr><td>04</td><td class="lang-key">typescript</td><td>TypeScript</td><td><code>esbuild {file} --bundle ...</code></td><td><code>node /tmp/job.js</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>05</td><td class="lang-key">cpp</td><td>C++ (C++20)</td><td><code>g++ -O3 -std=c++20 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>06</td><td class="lang-key">c</td><td>C (C17)</td><td><code>gcc -O3 -std=c17 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>07</td><td class="lang-key">go</td><td>Go 1.24</td><td><code>go build -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>08</td><td class="lang-key">zig</td><td>Zig 0.14</td><td><code>zig build-exe -O ReleaseFast {file} ...</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>09</td><td class="lang-key">java</td><td>Java (OpenJDK 21)</td><td><code>javac -d /tmp {file}</code></td><td><code>java -cp /tmp Solution</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>10</td><td class="lang-key">swift</td><td>Swift 6.0</td><td><code>swiftc -O -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">docker_image</td></tr>
+                  <tr><td>11</td><td class="lang-key">csharp</td><td>C# (Mono)</td><td><code>mcs -out:/tmp/job.exe {file}</code></td><td><code>mono /tmp/job.exe</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>12</td><td class="lang-key">kotlin</td><td>Kotlin 2.1</td><td><code>kotlinc {file} -include-runtime -d ...</code></td><td><code>java -jar /tmp/job.jar</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>13</td><td class="lang-key">scala</td><td>Scala 3.6</td><td><code>scalac -d /tmp/classes {file}</code></td><td><code>scala -cp /tmp/classes Solution</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>14</td><td class="lang-key">ruby</td><td>Ruby 3.3</td><td>-</td><td><code>ruby {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>15</td><td class="lang-key">php</td><td>PHP 8.3</td><td>-</td><td><code>php {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>16</td><td class="lang-key">julia</td><td>Julia 1.11</td><td>-</td><td><code>julia {file}</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>17</td><td class="lang-key">haskell</td><td>Haskell (GHC 9.6)</td><td><code>ghc -O2 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>18</td><td class="lang-key">lua</td><td>Lua 5.4</td><td>-</td><td><code>lua5.4 {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>19</td><td class="lang-key">perl</td><td>Perl 5.38</td><td>-</td><td><code>perl {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>20</td><td class="lang-key">r</td><td>R 4.4</td><td>-</td><td><code>Rscript {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>21</td><td class="lang-key">dart</td><td>Dart 3.6</td><td><code>dart compile exe {file} -o /tmp/job</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">docker_image</td></tr>
+                  <tr><td>22</td><td class="lang-key">elixir</td><td>Elixir 1.17</td><td>-</td><td><code>elixir {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>23</td><td class="lang-key">erlang</td><td>Erlang (OTP 27)</td><td><code>erlc -o /tmp {file}</code></td><td><code>erl -noshell -pa /tmp -s solution start</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>24</td><td class="lang-key">ocaml</td><td>OCaml 5.1</td><td><code>ocamlopt -O3 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>25</td><td class="lang-key">clojure</td><td>Clojure</td><td>-</td><td><code>clojure -M {file}</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>26</td><td class="lang-key">fsharp</td><td>F# (.NET / Mono)</td><td><code>fsharpc --out:/tmp/job.exe {file}</code></td><td><code>mono /tmp/job.exe</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>27</td><td class="lang-key">d</td><td>D (DMD)</td><td><code>dmd -O -release -of=/tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>28</td><td class="lang-key">nim</td><td>Nim 2.0</td><td><code>nim c -d:release --out:/tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">curl_tar</td></tr>
+                  <tr><td>29</td><td class="lang-key">fortran</td><td>Fortran (GFortran)</td><td><code>gfortran -O3 -o /tmp/job {file}</code></td><td><code>/tmp/job</code></td><td class="lang-strategy">apt_core</td></tr>
+                  <tr><td>30</td><td class="lang-key">bash</td><td>GNU Bash 5.2</td><td>-</td><td><code>bash {file}</code></td><td class="lang-strategy">apt_core</td></tr>
+                </tbody>
+              </table>
+            </div>
 
-            <article class="quickstart-step">
-              <div class="step-head">
-                <span class="step-num">03.</span>
-                <h3 class="step-title">System Health Diagnostics</h3>
-              </div>
-              <p class="step-desc">Validate <code>/dev/kvm</code> permissions, cgroups v2, and Jailer UID 20001:</p>
-              <div class="step-cmd">
-                <code id="step3-cmd">cratera doctor</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step3-cmd')" aria-label="Copy cratera doctor command">
-                  <span>COPY</span>
-                </button>
-              </div>
-            </article>
-
-            <article class="quickstart-step">
-              <div class="step-head">
-                <span class="step-num">04.</span>
-                <h3 class="step-title">Evaluate Untrusted Code</h3>
-              </div>
-              <p class="step-desc">Submit test workloads in Python, Rust, C++, or any of the 30 languages:</p>
-              <div class="step-cmd">
-                <code id="step4-cmd" data-copy="./examples/submit.sh python">./examples/submit.sh python  # or: cratera test rust</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step4-cmd')" aria-label="Copy code submission example command">
-                  <span>COPY</span>
-                </button>
-              </div>
-            </article>
-
-            <!-- STEP 05: SYSTEMD SERVICE DEPLOYMENT -->
-            <article class="quickstart-step" style="grid-column: 1 / -1;">
-              <div class="step-head">
-                <span class="step-num">05.</span>
-                <h3 class="step-title">Systemd Service Deployment</h3>
-              </div>
-              <p class="step-desc">
-                Deploy Cratera as a supervised system daemon. The included unit file provides <strong>verified default settings</strong> designed for reliable out-of-the-box isolation across all major Linux distributions (Ubuntu, Debian, Fedora, Arch, RHEL).
+            <!-- EXTENSIBILITY GUIDE -->
+            <div class="extensibility-box">
+              <h3 class="extensibility-title">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Adding a language (languages.toml)</span>
+              </h3>
+              <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">
+                Toolchains are defined declaratively in <code>languages.toml</code> and baked into the guest root filesystem. Adding or updating toolchains requires zero Rust engine recompilation.
               </p>
-              <div style="margin: 10px 0 14px; background: var(--bg-card-alt); border: 1px solid var(--border-muted); padding: 12px 14px; font-size: 12px; line-height: 1.6;">
-                <div style="color: var(--accent-green); font-weight: 700; margin-bottom: 4px;">✓ READY OUT OF THE BOX (NO MANUAL TUNING REQUIRED)</div>
-                <div style="color: var(--text-muted);">
-                  • <strong>Pre-hardened Security:</strong> Host eBPF network drop (<code>IPAddressDeny=any</code>), cgroups v2 resource delegation (<code>Delegate=yes</code>), and unprivileged Jailer isolation (UID 20001) are active by default.<br>
-                  • <strong>Safe &amp; Non-Invasive:</strong> All defaults are self-contained in <code>/opt/cratera</code>. Custom ports, limits, or keys can be overridden anytime in <code>/opt/cratera/.env</code> without touching the unit file.
+
+              <div class="strategy-grid">
+                <div class="strategy-card">
+                  <strong>1. install = "curl_tar"</strong>
+                  <span>Downloads and unpacks release tarballs (e.g. Zig, Julia, Gleam).</span>
+                </div>
+                <div class="strategy-card">
+                  <strong>2. install = "docker_image"</strong>
+                  <span>Extracts compiler binaries from container images (e.g. Node, Swift, Dart).</span>
+                </div>
+                <div class="strategy-card">
+                  <strong>3. install = "apt_core"</strong>
+                  <span>Installs packages via apt during rootfs build (e.g. GCC, Python, Java).</span>
+                </div>
+                <div class="strategy-card">
+                  <strong>4. install = "docker_image_base"</strong>
+                  <span>Uses a container image directly as the rootfs base layer.</span>
                 </div>
               </div>
-              
-              <div class="code-window" style="margin: 14px 0;">
+
+              <div class="code-window" style="margin-bottom: 12px;">
                 <div class="code-header">
-                  <span>deploy/cratera.service</span>
-                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'service-unit-code')" aria-label="Copy systemd service file snippet">
-                    <span>COPY UNIT</span>
-                  </button>
+                  <span>Example: Adding Gleam to languages.toml</span>
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span>languages.toml</span>
+                    <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'toml-example-code')" aria-label="Copy Gleam configuration snippet">
+                      <span>Copy</span>
+                    </button>
+                  </div>
                 </div>
                 <div class="code-content">
-                  <pre><code id="service-unit-code">[Unit]
+                  <pre><code id="toml-example-code">[gleam]
+enabled = true
+name = "Gleam"
+source = "main.gleam"
+compile = "gleam build --target=erlang"
+run = "gleam run"
+install = "curl_tar"
+source_url = "https://github.com/gleam-lang/gleam/releases/download/v1.8.1/gleam-v1.8.1-x86_64-unknown-linux-musl.tar.gz"</code></pre>
+                </div>
+              </div>
+
+              <div style="font-size: 12.5px; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                <span>Bake toolchains into the guest rootfs:</span>
+                <div class="step-cmd" style="padding: 6px 10px; margin: 0; font-size: 11.5px;">
+                  <code id="build-rootfs-cmd" data-copy="./scripts/build-rootfs.sh">./scripts/build-rootfs.sh</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'build-rootfs-cmd')" aria-label="Copy rootfs build command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 7: DEPLOYMENT -->
+          <section class="section-wrapper" id="deployment" aria-labelledby="deploy-heading">
+            <div class="section-header-bar">
+              <h2 id="deploy-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Deployment</span>
+              </h2>
+              <div class="section-status-right">Systemd &amp; Ingress</div>
+            </div>
+
+            <div class="deploy-grid">
+              <div class="deploy-card">
+                <h3 class="deploy-title">Development</h3>
+                <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 10px;">
+                  Run locally with cargo or shell scripts for testing and language integration:
+                </p>
+                <div class="step-cmd" style="margin-bottom: 6px;">
+                  <code id="dev-cmd" data-copy="cratera doctor &amp;&amp; cratera serve">cratera doctor &amp;&amp; cratera serve</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'dev-cmd')" aria-label="Copy development run command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="deploy-card">
+                <h3 class="deploy-title">Production</h3>
+                <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 10px;">
+                  Deploy via systemd with Firecracker Jailer, cgroups v2, and host network filters:
+                </p>
+                <div class="step-cmd" style="margin-bottom: 6px;">
+                  <code id="prod-cmd" data-copy="sudo systemctl enable --now cratera.service">sudo systemctl enable --now cratera.service</code>
+                  <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'prod-cmd')" aria-label="Copy systemd enable command">
+                    <span>Copy</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-window">
+              <div class="code-header">
+                <span>deploy/cratera.service</span>
+                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'service-unit-code')" aria-label="Copy systemd service file snippet">
+                  <span>Copy unit</span>
+                </button>
+              </div>
+              <div class="code-content">
+                <pre><code id="service-unit-code">[Unit]
 Description=Cratera Firecracker harness judge service
 After=network.target
 
@@ -1025,260 +907,218 @@ IPAddressAllow=localhost
 
 [Install]
 WantedBy=multi-user.target</code></pre>
-                </div>
               </div>
+            </div>
 
-              <!-- SYSTEMD DIRECTIVES BREAKDOWN TABLE -->
-              <div class="lang-table-container" style="margin-top: 14px;">
-                <table class="lang-table" style="min-width: 580px;">
-                  <thead>
-                    <tr>
-                      <th scope="col" style="width: 28%;">Directive / Variable</th>
-                      <th scope="col" style="width: 25%;">Value</th>
-                      <th scope="col">Architectural &amp; Security Function</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="lang-key">User</td>
-                      <td><code>root</code></td>
-                      <td>Required on host for <code>/dev/kvm</code> ioctls and Jailer launcher (which drops to UID/GID <code>20001</code>).</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">LimitNOFILE</td>
-                      <td><code>65536</code></td>
-                      <td>High file descriptor limit for concurrent microVM epolls, vsock sockets, and disk images.</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">Delegate</td>
-                      <td><code>yes</code></td>
-                      <td><strong>cgroups v2 Delegation</strong>: Grants Cratera control over its cgroup subtree to enforce memory/CPU limits.</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">KillMode</td>
-                      <td><code>mixed</code></td>
-                      <td>Sends <code>SIGTERM</code> to coordinator process, then <code>SIGKILL</code> to any lingering microVM child processes.</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">IPAddressDeny</td>
-                      <td><code>any</code></td>
-                      <td><strong>Host-level eBPF Sandboxing</strong>: Blocks all inbound and outbound IPv4/IPv6 internet traffic.</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">IPAddressAllow</td>
-                      <td><code>localhost</code></td>
-                      <td>Permits loopback (<code>127.0.0.1</code>, <code>::1</code>) for local reverse proxies (Nginx/Caddy) and API clients.</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">CRATERA_USE_JAILER</td>
-                      <td><code>1</code></td>
-                      <td>Enables unprivileged Firecracker Jailer chroot, UID/GID 20001, and cgroups v2 sandbox isolation.</td>
-                    </tr>
-                    <tr>
-                      <td class="lang-key">CRATERA_USE_SNAPSHOT</td>
-                      <td><code>1</code></td>
-                      <td>Restores microVM from memory snapshot in ~5ms, bypassing guest Linux kernel boot overhead.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <!-- SYSTEMD DIRECTIVES BREAKDOWN TABLE -->
+            <div class="lang-table-container">
+              <table class="lang-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 28%;">Directive / Variable</th>
+                    <th scope="col" style="width: 25%;">Value</th>
+                    <th scope="col">Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="lang-key">User</td>
+                    <td><code>root</code></td>
+                    <td>Required for <code>/dev/kvm</code> ioctls; Jailer launcher drops privileges to UID/GID <code>20001</code>.</td>
+                  </tr>
+                  <tr>
+                    <td class="lang-key">CRATERA_USE_JAILER</td>
+                    <td><code>1</code></td>
+                    <td>Enables Firecracker Jailer chroot, UID/GID 20001, and cgroups v2 containment in production.</td>
+                  </tr>
+                  <tr>
+                    <td class="lang-key">Delegate</td>
+                    <td><code>yes</code></td>
+                    <td>Grants Cratera control over its cgroup v2 subtree to manage memory and process limits.</td>
+                  </tr>
+                  <tr>
+                    <td class="lang-key">IPAddressDeny</td>
+                    <td><code>any</code></td>
+                    <td>Blocks inbound and outbound IPv4/IPv6 traffic at the host service level.</td>
+                  </tr>
+                  <tr>
+                    <td class="lang-key">IPAddressAllow</td>
+                    <td><code>localhost</code></td>
+                    <td>Allows local loopback (<code>127.0.0.1</code>) for reverse proxies and coordinator clients.</td>
+                  </tr>
+                  <tr>
+                    <td class="lang-key">CRATERA_USE_SNAPSHOT</td>
+                    <td><code>1</code></td>
+                    <td>Restores microVM state from memory snapshot in ~5ms, bypassing guest Linux boot.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-              <div class="step-cmd" style="margin-top: 14px;">
-                <code id="service-enable-cmd">sudo cp deploy/cratera.service /etc/systemd/system/ &amp;&amp; sudo systemctl daemon-reload &amp;&amp; sudo systemctl enable --now cratera.service</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'service-enable-cmd')" aria-label="Copy systemctl enable command">
-                  <span>COPY</span>
-                </button>
-              </div>
+            <div class="callout callout-info" style="margin-top: 14px;">
+              <div class="callout-title">Recommended Ingress</div>
+              <p>
+                Cratera binds to <code>127.0.0.1:3100</code> by default. In production environments, place the service behind a private ingress such as a <strong>Cloudflare Zero Trust Tunnel (<code>cloudflared</code>)</strong> or a <strong>Tailscale / WireGuard mesh</strong> without exposing inbound ports to the public internet.
+              </p>
+            </div>
+          </section>
 
-              <p class="step-desc" style="margin-top: 10px;">Manage, start, stop, or inspect the daemon via the <code>cratera service</code> CLI or Command Center Option <code>[7]</code>:</p>
-              <div class="step-cmd">
-                <code id="service-ctl-cmd" data-copy="cratera service status  # or: cratera service start / stop / restart">cratera service status  # or: cratera service start / stop / restart</code>
-                <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'service-ctl-cmd')" aria-label="Copy cratera service status CLI command">
-                  <span>COPY</span>
-                </button>
-              </div>
+          <!-- SECTION 8: BUILT WITH CRATERA -->
+          <section class="section-wrapper" id="showcase" aria-labelledby="showcase-heading">
+            <div class="section-header-bar">
+              <h2 id="showcase-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>Built with Cratera</span>
+              </h2>
+              <div class="section-status-right">Projects</div>
+            </div>
 
-              <!-- ZERO TRUST INGRESS RECOMMENDATION -->
-              <div style="margin-top: 14px; background: rgba(0, 229, 255, 0.04); border: 1px solid rgba(0, 229, 255, 0.2); padding: 12px 14px; font-size: 12px; line-height: 1.6;">
-                <div style="color: var(--accent-cyan); font-weight: 700; margin-bottom: 4px;">RECOMMENDED INGRESS: CLOUDFLARE ZERO TRUST &amp; PRIVATE MESH</div>
-                <div style="color: var(--text-muted);">
-                  Cratera binds to <code>127.0.0.1:3100</code> by default with host eBPF drop filters (<code>IPAddressDeny=any</code>). For production infrastructure, deployment is recommended behind <strong>Cloudflare Zero Trust Tunnels (<code>cloudflared</code>) with Service Tokens</strong> or a <strong>Tailscale/WireGuard mesh</strong> — exposing 0 inbound ports to the public internet.
-                </div>
-              </div>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- SECTION 7: SHOWCASE (BUILT WITH CRATERA) -->
-        <section class="section-wrapper" id="showcase" aria-labelledby="showcase-heading">
-          <div class="section-header-bar">
-            <h2 id="showcase-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// BUILT_WITH_CRATERA</span>
-            </h2>
-            <div class="section-status-right">SHOWCASE DIRECTORY</div>
-          </div>
-
-          <div style="background: var(--bg-card); border: 1px solid var(--border-color); padding: 24px; margin-bottom: 16px;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;">
-              <div>
-                <h3 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; font-family: var(--font-mono);">Showcase (Built with Cratera)</h3>
-                <p style="font-size: 13px; color: var(--text-muted); max-width: 680px; line-height: 1.6;">
-                  Production platforms, interactive coding judges, and AI sandboxes powered by Cratera hardware microVMs.
+            <div class="showcase-container">
+              <div class="showcase-header">
+                <h3 class="showcase-heading">Used in production</h3>
+                <p class="showcase-lead">
+                  Projects and platforms using Cratera for isolated code execution.
                 </p>
               </div>
-              <span style="font-size: 11px; padding: 4px 10px; border: 1px solid rgba(217, 119, 6, 0.5); background: rgba(217, 119, 6, 0.08); color: var(--accent-orange); font-weight: 700; letter-spacing: 0.5px; font-family: var(--font-mono);">
-                FEATURED PLATFORM
-              </span>
-            </div>
 
-            <!-- FEATURED: CRATERY -->
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding: 18px 20px; background: var(--bg-dark); border: 1px solid var(--border-dark); margin-bottom: 16px;">
-              <div>
-                <div style="margin-bottom: 4px;">
-                  <span style="font-weight: 700; font-size: 13.5px; color: #ffffff; font-family: var(--font-mono);">Cratery</span>
+              <!-- FEATURED: CRATERY -->
+              <div class="showcase-card">
+                <div>
+                  <div class="showcase-name">Cratery</div>
+                  <div class="showcase-desc">
+                    Interactive Rust learning platform with quizzes, coding trials, and weekly contests evaluated in real time on Cratera microVMs. Powered by Cratera in production since February 2026.
+                  </div>
+                  <div class="showcase-meta">
+                    Domain: <a href="https://cratery.cratera.org" target="_blank" rel="noopener noreferrer">cratery.cratera.org</a>
+                  </div>
                 </div>
-                <div style="font-size: 12.5px; color: #94a3b8; max-width: 580px; line-height: 1.5;">
-                  Interactive Rust quizzes, coding trials, and weekly contests evaluated in real-time on Cratera microVMs.
-                </div>
-                <div style="font-family: var(--font-mono); font-size: 11px; color: #64748b; margin-top: 6px;">
-                  Domain: <a href="https://cratery.cratera.org" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: underline;">cratery.cratera.org</a>
+                <div>
+                  <a href="https://cratery.cratera.org" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                    Open Cratery ↗
+                  </a>
                 </div>
               </div>
-              <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                <a href="https://cratery.cratera.org" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; text-decoration: none; padding: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; white-space: nowrap; background: #ffffff; color: #0f172a; border: 1px solid #ffffff; transition: all 0.15s ease;">
-                  OPEN CRATERY ↗
-                </a>
-              </div>
-            </div>
 
-            <!-- COMMUNITY NOTICE & CTA -->
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; padding: 18px 20px; background: var(--bg-dark); border: 1px solid var(--border-dark);">
-              <div>
-                <div style="font-weight: 700; font-size: 13.5px; margin-bottom: 4px; color: #ffffff; font-family: var(--font-mono);">Building an application on Cratera?</div>
-                <div style="font-size: 12.5px; color: #94a3b8; max-width: 580px; line-height: 1.5;">
-                  Share integration details, case studies, or production deployments on Zulip or via email to get featured in the showcase directory.
+              <!-- COMMUNITY CTA -->
+              <div class="showcase-cta">
+                <div class="showcase-cta-text">
+                  Building a platform or service on Cratera? Let us know on Zulip or submit your project.
                 </div>
-              </div>
-              <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; text-decoration: none; padding: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; white-space: nowrap; background: #243042; color: #ffffff; border: 1px solid #3b4d66; transition: all 0.15s ease;">
-                  COMMUNITY ZULIP ↗
-                </a>
-                <a href="mailto:contact@cratera.org?subject=Cratera%20Showcase%20Submission" style="display: inline-flex; align-items: center; text-decoration: none; padding: 8px 14px; font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; white-space: nowrap; background: #ffffff; color: #0f172a; border: 1px solid #ffffff; transition: all 0.15s ease;">
-                  SUBMIT PROJECT ↗
-                </a>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="btn btn-dark">
+                    Zulip Chat ↗
+                  </a>
+                  <a href="mailto:contact@cratera.org?subject=Cratera%20Project%20Submission" class="btn btn-secondary">
+                    Submit Project ↗
+                  </a>
+                </div>
               </div>
             </div>
+          </section>
 
-          </div>
-        </section>
+          <!-- SECTION 9: FREQUENTLY ASKED QUESTIONS -->
+          <section class="section-wrapper" id="faq" aria-labelledby="faq-heading">
+            <div class="section-header-bar">
+              <h2 id="faq-heading" class="section-tag-left">
+                <span class="section-icon-symbol">&gt;</span>
+                <span>FAQ</span>
+              </h2>
+              <div class="section-status-right">Questions</div>
+            </div>
 
-        <!-- SECTION 8: FREQUENTLY ASKED QUESTIONS -->
-        <section class="section-wrapper" id="faq" aria-labelledby="faq-heading">
-          <div class="section-header-bar">
-            <h2 id="faq-heading" class="section-tag-left">
-              <span class="section-icon-symbol">&gt;</span>
-              <span>// FREQUENTLY_ASKED_QUESTIONS</span>
-            </h2>
-            <div class="section-status-right">SCHEMA: FAQPAGE</div>
-          </div>
+            <div class="faq-grid">
+              <details class="faq-item" open>
+                <summary class="faq-summary">
+                  <h3 class="faq-question-text">
+                    <span class="section-icon-symbol">&gt;</span>
+                    <span>What is Cratera and how does it execute untrusted code?</span>
+                  </h3>
+                  <span class="faq-toggle-icon">▶</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>Cratera is a self-hosted code execution engine built in Rust using AWS Firecracker and Linux KVM. Rather than running workloads inside containers that share the host Linux kernel, Cratera runs each execution inside an independent microVM with its own dedicated guest kernel.</p>
+                  <p>This separates untrusted code from the host kernel, preventing container breakout attacks and cross-tenant interference.</p>
+                </div>
+              </details>
 
-          <div class="faq-grid">
-            
-            <details class="faq-item" open>
-              <summary class="faq-summary">
-                <h3 class="faq-question-text">
-                  <span class="section-icon-symbol">&gt;</span>
-                  <span>What is Cratera and how does it execute untrusted code?</span>
-                </h3>
-                <span class="faq-toggle-icon">▶</span>
-              </summary>
-              <div class="faq-answer">
-                <p>Cratera is a high-performance bare-metal microVM execution engine built in Rust using AWS Firecracker and Linux KVM (Kernel-based Virtual Machine). Unlike standard container sandboxes that share the host operating system kernel, Cratera runs every execution job inside a dedicated, hardware-isolated microVM in CPU Ring 3 privilege mode.</p>
-                <p>This ensures complete defense against Linux kernel exploits, container breakouts, and multi-tenant cross-contamination.</p>
-              </div>
-            </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <h3 class="faq-question-text">
+                    <span class="section-icon-symbol">&gt;</span>
+                    <span>How does Cratera achieve ~5ms snapshot restore latency?</span>
+                  </h3>
+                  <span class="faq-toggle-icon">▶</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>Standard virtual machine boots take hundreds of milliseconds to several seconds. Cratera pre-boots a minimal Linux guest kernel with the in-guest <code>cratera-agent</code> and creates an in-memory snapshot.</p>
+                  <p>When an execution request arrives, Cratera restores the microVM snapshot in approximately <strong>5 milliseconds</strong>, bypassing the guest kernel boot sequence.</p>
+                </div>
+              </details>
 
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <h3 class="faq-question-text">
-                  <span class="section-icon-symbol">&gt;</span>
-                  <span>How does Cratera achieve sub-5ms snapshot restore latency?</span>
-                </h3>
-                <span class="faq-toggle-icon">▶</span>
-              </summary>
-              <div class="faq-answer">
-                <p>Traditional virtual machines take seconds to boot the guest operating system. Cratera overcomes this by pre-booting a minimal Linux guest kernel, initializing the in-guest <code>cratera-agent</code>, and capturing a memory snapshot to RAM.</p>
-                <p>When an evaluation payload arrives, Cratera restores the microVM snapshot in approximately <strong>5 milliseconds</strong>, immediately dispatching execution without boot overhead.</p>
-              </div>
-            </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <h3 class="faq-question-text">
+                    <span class="section-icon-symbol">&gt;</span>
+                    <span>How does Cratera differ from Docker containers and WebAssembly?</span>
+                  </h3>
+                  <span class="faq-toggle-icon">▶</span>
+                </summary>
+                <div class="faq-answer">
+                  <p><strong>Docker / LXC:</strong> Workloads share the host kernel. A vulnerability in the host kernel can compromise the host machine or other containers.</p>
+                  <p><strong>WebAssembly:</strong> Offers strong isolation but does not provide full POSIX compatibility for arbitrary native toolchains, C-extensions, or standard runtimes without recompilation.</p>
+                  <p><strong>Cratera:</strong> Uses KVM hardware virtualization with dedicated guest kernels while providing full POSIX compatibility across 30 standard language toolchains.</p>
+                </div>
+              </details>
 
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <h3 class="faq-question-text">
-                  <span class="section-icon-symbol">&gt;</span>
-                  <span>How does Cratera differ from Docker containers and WebAssembly sandboxes?</span>
-                </h3>
-                <span class="faq-toggle-icon">▶</span>
-              </summary>
-              <div class="faq-answer">
-                <p><strong>Docker/LXC:</strong> Relies on Linux namespaces and cgroups on a shared host kernel. Any kernel bug (e.g. dirty COW, io_uring privilege escalation) can compromise the entire host machine.</p>
-                <p><strong>WebAssembly (Wasm):</strong> Provides great isolation and startup speed but cannot run arbitrary native C/C++ binaries, standard Python packages with C-extensions, or standard JVM/CLR runtimes without compilation modifications.</p>
-                <p><strong>Cratera:</strong> Delivers true hardware virtualization (Intel VT-x / AMD-V) with full POSIX compatibility for 30+ native language toolchains at container-like sub-millisecond latencies.</p>
-              </div>
-            </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <h3 class="faq-question-text">
+                    <span class="section-icon-symbol">&gt;</span>
+                    <span>How are network access and resource exhaustion handled?</span>
+                  </h3>
+                  <span class="faq-toggle-icon">▶</span>
+                </summary>
+                <div class="faq-answer">
+                  <p><strong>No guest network interface:</strong> MicroVMs are launched without any virtual network devices (no tap/tun, no eth0). In addition, the systemd unit applies <code>IPAddressDeny=any</code> at the service level.</p>
+                  <p><strong>Resource bounds:</strong> CPU time and process counts (<code>RLIMIT_NPROC</code> to stop fork bombs) are enforced inside the guest, while cgroups v2 limits memory allocation on the host alongside a hypervisor SIGKILL watchdog.</p>
+                </div>
+              </details>
 
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <h3 class="faq-question-text">
-                  <span class="section-icon-symbol">&gt;</span>
-                  <span>How does Cratera prevent network exfiltration and fork bombs?</span>
-                </h3>
-                <span class="faq-toggle-icon">▶</span>
-              </summary>
-              <div class="faq-answer">
-                <p>Cratera implements a defense-in-depth isolation boundary:</p>
-                <p><strong>Zero-NIC:</strong> MicroVMs are launched without any virtual network interfaces (no tap/tun, no eth0). In addition, systemd eBPF IP deny rules block raw packet generation.</p>
-                <p><strong>Resource Limits:</strong> Fork bombs and infinite loops are neutralized using POSIX <code>RLIMIT_NPROC</code>, <code>RLIMIT_CPU</code>, and cgroups v2 memory controllers, backed by an asynchronous hypervisor SIGKILL watchdog.</p>
-              </div>
-            </details>
+              <details class="faq-item">
+                <summary class="faq-summary">
+                  <h3 class="faq-question-text">
+                    <span class="section-icon-symbol">&gt;</span>
+                    <span>How do I add or customize programming languages?</span>
+                  </h3>
+                  <span class="faq-toggle-icon">▶</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>Adding toolchains requires <strong>zero Rust engine recompilation</strong>. Compiler commands, source filenames, runtime paths, and installation strategies (apt packages, official Docker image extraction, or tarballs) are defined in <code>languages.toml</code> and baked into the guest rootfs image.</p>
+                </div>
+              </details>
 
-            <details class="faq-item">
-              <summary class="faq-summary">
-                <h3 class="faq-question-text">
-                  <span class="section-icon-symbol">&gt;</span>
-                  <span>How easy is it to add new programming languages to Cratera?</span>
-                </h3>
-                <span class="faq-toggle-icon">▶</span>
-              </summary>
-              <div class="faq-answer">
-                <p>Adding new toolchains requires <strong>zero Rust engine recompilation</strong>. All compiler commands, source filenames, runtime paths, and installation strategies (apt packages, official Docker image extraction, or curl release archives) are declared in <code>languages.toml</code>. You can configure and bake a new runtime into the rootfs image in under 60 seconds.</p>
-              </div>
-            </details>
+              <details class="faq-item" open>
+                <summary class="faq-summary">
+                  <h3 class="faq-question-text">
+                    <span class="section-icon-symbol">&gt;</span>
+                    <span>How is Cratera deployed in production?</span>
+                  </h3>
+                  <span class="faq-toggle-icon">▶</span>
+                </summary>
+                <div class="faq-answer">
+                  <p>Cratera includes a systemd unit (<code>deploy/cratera.service</code>) that enables unprivileged Firecracker Jailer chroot isolation (UID/GID 20001), cgroups v2 delegation (<code>Delegate=yes</code>), host network filtering (<code>IPAddressDeny=any</code>), and automatic process supervision.</p>
+                </div>
+              </details>
+            </div>
+          </section>
 
-            <details class="faq-item" open>
-              <summary class="faq-summary">
-                <h3 class="faq-question-text">
-                  <span class="section-icon-symbol">&gt;</span>
-                  <span>How is Cratera deployed as a systemd service?</span>
-                </h3>
-                <span class="faq-toggle-icon">▶</span>
-              </summary>
-              <div class="faq-answer">
-                <p>Cratera ships with a systemd unit (<code>deploy/cratera.service</code>). It configures host-level eBPF kernel network sandboxing (<code>IPAddressDeny=any</code>, <code>IPAddressAllow=localhost</code>), cgroups v2 resource delegation (<code>Delegate=yes</code>), unprivileged Firecracker Jailer chroot (UID/GID 20001), 65K open file descriptors (<code>LimitNOFILE=65536</code>), and automatic restart recovery.</p>
-              </div>
-            </details>
+          <!-- FOOTER -->
+          <footer class="page-footer" role="contentinfo">
+            <div>Cratera • Open-source project licensed under <a href="https://github.com/cratera-project/cratera/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="footer-link">Apache License 2.0</a>.</div>
+            <div><a href="mailto:contact@cratera.org" class="footer-link">contact@cratera.org</a> • <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="footer-link">cratera.zulipchat.com</a> • <a href="https://github.com/cratera-project/cratera" target="_blank" rel="noopener noreferrer" class="footer-link">github.com/cratera-project/cratera</a></div>
+          </footer>
 
-          </div>
-        </section>
-
-        <!-- MINIMAL FOOTER -->
-        <footer class="page-footer" role="contentinfo">
-          <div>CRATERA • Open-source project licensed under the <a href="https://github.com/cratera-project/cratera/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="footer-link">Apache License 2.0</a>.</div>
-          <div>Contact: <a href="mailto:contact@cratera.org" class="footer-link">contact@cratera.org</a> • <a href="https://cratera.zulipchat.com" target="_blank" rel="noopener noreferrer" class="footer-link">cratera.zulipchat.com</a> • <a href="https://crates.io/crates/cratera" target="_blank" rel="noopener noreferrer" class="footer-link">crates.io/crates/cratera</a> • <a href="https://github.com/cratera-project/cratera" target="_blank" rel="noopener noreferrer" class="footer-link">github.com/cratera-project/cratera</a> • <a href="https://github.com/cratera-project/website" target="_blank" rel="noopener noreferrer" class="footer-link">github.com/cratera-project/website</a></div>
-        </footer>
-
+        </div>
       </main>
 
     </div>

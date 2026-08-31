@@ -1,7 +1,7 @@
 {
   "name": "Cratera | MicroVM Code Execution Engine",
   "short_name": "Cratera",
-  "description": "Bare-metal microVM execution engine designed for sub-millisecond cold starts and absolute hardware isolation.",
+  "description": "Self-hosted code execution engine that runs untrusted programs inside Firecracker microVMs using Linux KVM.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#151d28",
