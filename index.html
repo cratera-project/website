@@ -156,12 +156,12 @@
               "name": "How does Cratera differ from Docker containers and WebAssembly sandboxes?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Docker containers share the host Linux kernel, where a kernel vulnerability can compromise the host. WebAssembly provides sandboxing but lacks full POSIX support for native toolchains. Cratera provides hardware-level KVM virtualization with independent guest kernels while maintaining full POSIX compatibility for 30 language toolchains."
+                "text": "Docker containers share the host Linux kernel, where a kernel vulnerability can compromise the host. WebAssembly provides sandboxing but requires compilation to Wasm bytecode and cannot run arbitrary native binaries without specialized porting. Cratera uses KVM hardware virtualization with dedicated guest kernels and runs standard native Linux toolchains."
               }
             },
             {
               "@type": "Question",
-              "name": "How does Cratera prevent network attacks and fork bombs?",
+              "name": "How are network access and resource exhaustion handled?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "MicroVMs are launched without a virtual network interface (no guest NIC). Fork bombs and resource exhaustion are mitigated via POSIX RLIMIT_NPROC, RLIMIT_CPU, cgroups v2 memory limits, and a hypervisor SIGKILL watchdog."
@@ -297,10 +297,7 @@
           <!-- SECTION 1: SPECIFICATIONS -->
           <section class="section-wrapper" id="specs" aria-labelledby="specs-heading">
             <div class="section-header-bar">
-              <h2 id="specs-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Specifications</span>
-              </h2>
+              <h2 id="specs-heading" class="section-tag-left">Specifications</h2>
               <div class="section-status-right">System Metrics</div>
             </div>
 
@@ -412,10 +409,7 @@
           <!-- SECTION 2: ARCHITECTURE -->
           <section class="section-wrapper" id="architecture" aria-labelledby="arch-heading">
             <div class="section-header-bar">
-              <h2 id="arch-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Architecture</span>
-              </h2>
+              <h2 id="arch-heading" class="section-tag-left">Architecture</h2>
               <div class="section-status-right">Isolation Model</div>
             </div>
 
@@ -480,7 +474,7 @@
               <article class="security-card">
                 <h3 class="security-title">Telemetry Stream</h3>
                 <p class="security-desc">
-                  Measures in-guest monotonic execution time in microseconds and samples live <code>RssAnon</code> memory at 200μs intervals over <code>AF_VSOCK:52</code>.
+                  Measures in-guest monotonic execution time in microseconds and samples live <code>RssAnon</code> memory during execution over <code>AF_VSOCK:52</code>.
                 </p>
               </article>
             </div>
@@ -489,10 +483,7 @@
           <!-- SECTION 3: SECURITY MODEL -->
           <section class="section-wrapper" id="security" aria-labelledby="sec-heading">
             <div class="section-header-bar">
-              <h2 id="sec-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Security</span>
-              </h2>
+              <h2 id="sec-heading" class="section-tag-left">Security</h2>
               <div class="section-status-right">Defense-in-Depth</div>
             </div>
 
@@ -537,10 +528,7 @@
           <!-- SECTION 4: QUICKSTART -->
           <section class="section-wrapper" id="quickstart" aria-labelledby="quickstart-heading">
             <div class="section-header-bar">
-              <h2 id="quickstart-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Quick start</span>
-              </h2>
+              <h2 id="quickstart-heading" class="section-tag-left">Quick start</h2>
               <div class="section-status-right">Setup &amp; Run</div>
             </div>
 
@@ -606,10 +594,7 @@
           <!-- SECTION 5: HTTP API SPEC -->
           <section class="section-wrapper" id="api" aria-labelledby="api-heading">
             <div class="section-header-bar">
-              <h2 id="api-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>API</span>
-              </h2>
+              <h2 id="api-heading" class="section-tag-left">API</h2>
               <div class="section-status-right">POST /harness</div>
             </div>
 
@@ -705,10 +690,7 @@
           <!-- SECTION 6: SUPPORTED LANGUAGES -->
           <section class="section-wrapper" id="languages" aria-labelledby="lang-heading">
             <div class="section-header-bar">
-              <h2 id="lang-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Languages</span>
-              </h2>
+              <h2 id="lang-heading" class="section-tag-left">Languages</h2>
               <div class="section-status-right">30 Toolchains</div>
             </div>
 
@@ -767,10 +749,7 @@
 
             <!-- EXTENSIBILITY GUIDE -->
             <div class="extensibility-box">
-              <h3 class="extensibility-title">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Adding a language (languages.toml)</span>
-              </h3>
+              <h3 class="extensibility-title">Adding a language (languages.toml)</h3>
               <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px;">
                 Toolchains are defined declaratively in <code>languages.toml</code> and baked into the guest root filesystem. Adding or updating toolchains requires zero Rust engine recompilation.
               </p>
@@ -831,10 +810,7 @@ source_url = "https://github.com/gleam-lang/gleam/releases/download/v1.8.1/gleam
           <!-- SECTION 7: DEPLOYMENT -->
           <section class="section-wrapper" id="deployment" aria-labelledby="deploy-heading">
             <div class="section-header-bar">
-              <h2 id="deploy-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Deployment</span>
-              </h2>
+              <h2 id="deploy-heading" class="section-tag-left">Deployment</h2>
               <div class="section-status-right">Systemd &amp; Ingress</div>
             </div>
 
@@ -966,10 +942,7 @@ WantedBy=multi-user.target</code></pre>
           <!-- SECTION 8: BUILT WITH CRATERA -->
           <section class="section-wrapper" id="showcase" aria-labelledby="showcase-heading">
             <div class="section-header-bar">
-              <h2 id="showcase-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>Built with Cratera</span>
-              </h2>
+              <h2 id="showcase-heading" class="section-tag-left">Built with Cratera</h2>
               <div class="section-status-right">Projects</div>
             </div>
 
@@ -1019,34 +992,25 @@ WantedBy=multi-user.target</code></pre>
           <!-- SECTION 9: FREQUENTLY ASKED QUESTIONS -->
           <section class="section-wrapper" id="faq" aria-labelledby="faq-heading">
             <div class="section-header-bar">
-              <h2 id="faq-heading" class="section-tag-left">
-                <span class="section-icon-symbol">&gt;</span>
-                <span>FAQ</span>
-              </h2>
+              <h2 id="faq-heading" class="section-tag-left">FAQ</h2>
               <div class="section-status-right">Questions</div>
             </div>
 
             <div class="faq-grid">
               <details class="faq-item" open>
                 <summary class="faq-summary">
-                  <h3 class="faq-question-text">
-                    <span class="section-icon-symbol">&gt;</span>
-                    <span>What is Cratera and how does it execute untrusted code?</span>
-                  </h3>
+                  <h3 class="faq-question-text">What is Cratera and how does it execute untrusted code?</h3>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
                   <p>Cratera is a self-hosted code execution engine built in Rust using AWS Firecracker and Linux KVM. Rather than running workloads inside containers that share the host Linux kernel, Cratera runs each execution inside an independent microVM with its own dedicated guest kernel.</p>
-                  <p>This separates untrusted code from the host kernel, preventing container breakout attacks and cross-tenant interference.</p>
+                  <p>This separates untrusted workloads from the host kernel and avoids the shared-kernel escape model used by containers.</p>
                 </div>
               </details>
 
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <h3 class="faq-question-text">
-                    <span class="section-icon-symbol">&gt;</span>
-                    <span>How does Cratera achieve ~5ms snapshot restore latency?</span>
-                  </h3>
+                  <h3 class="faq-question-text">How does Cratera achieve ~5ms snapshot restore latency?</h3>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
@@ -1057,25 +1021,19 @@ WantedBy=multi-user.target</code></pre>
 
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <h3 class="faq-question-text">
-                    <span class="section-icon-symbol">&gt;</span>
-                    <span>How does Cratera differ from Docker containers and WebAssembly?</span>
-                  </h3>
+                  <h3 class="faq-question-text">How does Cratera differ from Docker containers and WebAssembly?</h3>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
                   <p><strong>Docker / LXC:</strong> Workloads share the host kernel. A vulnerability in the host kernel can compromise the host machine or other containers.</p>
-                  <p><strong>WebAssembly:</strong> Offers strong isolation but does not provide full POSIX compatibility for arbitrary native toolchains, C-extensions, or standard runtimes without recompilation.</p>
-                  <p><strong>Cratera:</strong> Uses KVM hardware virtualization with dedicated guest kernels while providing full POSIX compatibility across 30 standard language toolchains.</p>
+                  <p><strong>WebAssembly:</strong> Offers sandboxing but requires compilation to Wasm bytecode and cannot run arbitrary native Linux binaries or standard C-extensions without specialized porting.</p>
+                  <p><strong>Cratera:</strong> Uses KVM hardware virtualization with dedicated guest kernels and runs standard native Linux toolchains.</p>
                 </div>
               </details>
 
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <h3 class="faq-question-text">
-                    <span class="section-icon-symbol">&gt;</span>
-                    <span>How are network access and resource exhaustion handled?</span>
-                  </h3>
+                  <h3 class="faq-question-text">How are network access and resource exhaustion handled?</h3>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
@@ -1086,10 +1044,7 @@ WantedBy=multi-user.target</code></pre>
 
               <details class="faq-item">
                 <summary class="faq-summary">
-                  <h3 class="faq-question-text">
-                    <span class="section-icon-symbol">&gt;</span>
-                    <span>How do I add or customize programming languages?</span>
-                  </h3>
+                  <h3 class="faq-question-text">How do I add or customize programming languages?</h3>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
@@ -1099,10 +1054,7 @@ WantedBy=multi-user.target</code></pre>
 
               <details class="faq-item" open>
                 <summary class="faq-summary">
-                  <h3 class="faq-question-text">
-                    <span class="section-icon-symbol">&gt;</span>
-                    <span>How is Cratera deployed in production?</span>
-                  </h3>
+                  <h3 class="faq-question-text">How is Cratera deployed in production?</h3>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">

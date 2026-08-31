@@ -635,12 +635,6 @@ h2.section-tag-left {
   margin: 0;
 }
 
-.section-icon-symbol {
-  color: var(--accent-orange);
-  font-family: var(--font-mono);
-  font-weight: 800;
-}
-
 .section-status-right {
   font-family: var(--font-mono);
   font-size: 11px;
