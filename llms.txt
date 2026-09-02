@@ -5,9 +5,10 @@
 ## Core Capabilities
 - **Hardware Virtualization**: Runs untrusted code in ephemeral Linux microVMs with dedicated guest kernels rather than shared-kernel containers.
 - **~5ms Snapshot Restore**: Bypasses guest Linux boot latency via in-memory snapshot restoration.
-- **No Guest Networking**: Ephemeral microVMs launch with zero virtual network interfaces paired with host-level systemd network filtering.
+- **No Guest Networking**: Ephemeral microVMs launch with zero virtual network interfaces paired with host-level systemd network filtering (`IPAddressDeny=any`). Production refuses a non-loopback API bind.
 - **RAM Workspace**: Ephemeral 256 MiB tmpfs workspace with zero persistent disk footprint.
-- **In-Guest Telemetry**: Monotonic microsecond execution timer and live RSS memory sampling over point-to-point AF_VSOCK:52.
+- **In-Guest Telemetry**: Monotonic microsecond execution timer and live RSS memory sampling over point-to-point AF_VSOCK:52. Host emits one `job_record` log per job.
+- **Production fail-closed (v1.1.0)**: Jailer required, placeholder API keys refused, kernel/rootfs SHA-256 checksums verified, host env not injected into the guest.
 - **30 Built-in Toolchains**: Rust, Python, Node, TypeScript, C++, C, Go, Zig, Java, Swift, C#, Kotlin, Scala, Ruby, PHP, Julia, Haskell, Lua, Perl, R, Dart, Elixir, Erlang, OCaml, Clojure, F#, D, Nim, Fortran, Bash.
 - **Declarative Extensibility**: Add custom toolchains via `languages.toml` without Rust engine recompilation.
 

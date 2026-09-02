@@ -157,6 +157,7 @@
           "applicationCategory": "DeveloperApplication",
           "description": "Self-hosted code execution engine that runs untrusted programs inside Firecracker microVMs using Linux KVM.",
           "license": "https://github.com/cratera-project/cratera/blob/main/LICENSE",
+          "softwareVersion": "1.1.0",
           "codeRepository": "https://github.com/cratera-project/cratera",
           "offers": {
             "@type": "Offer",
@@ -203,7 +204,7 @@
               "name": "How are network access and resource exhaustion handled?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "MicroVMs are launched without a virtual network interface (no guest NIC). Fork bombs and resource exhaustion are mitigated via POSIX RLIMIT_NPROC, RLIMIT_CPU, cgroups v2 memory limits, and a hypervisor SIGKILL watchdog."
+                "text": "MicroVMs are launched without a virtual network interface (no guest NIC). Fork bombs and resource exhaustion are mitigated via host cgroups v2 (memory.max, cpu.max, pids.max), guest pidfd SIGKILL watchdogs, and a one-microVM-at-a-time coordinator."
               }
             },
             {
@@ -219,7 +220,7 @@
               "name": "How is Cratera deployed in production?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Cratera includes a production systemd service unit that enables Firecracker Jailer isolation (UID 20001), host network restrictions (IPAddressDeny=any), cgroups v2 delegation, and automatic restart supervision."
+                "text": "Cratera includes a production systemd unit with Firecracker Jailer (UID 20001), IPAddressDeny=any, and cgroups v2. Production serve refuses Jailer-off, non-loopback bind, placeholder API keys, and missing or mismatched kernel/rootfs SHA-256 checksums."
               }
             }
           ]
@@ -427,11 +428,11 @@
                     </li>
                     <li class="sys-item">
                       <span class="sys-bullet">[*]</span>
-                      <span><strong class="sys-text-strong">cgroups v2:</strong> <span class="sys-text-dim">Unified hierarchy (memory, pids controllers)</span></span>
+                      <span><strong class="sys-text-strong">cgroups v2:</strong> <span class="sys-text-dim">Unified hierarchy (memory, cpu, pids)</span></span>
                     </li>
                     <li class="sys-item">
                       <span class="sys-bullet">[*]</span>
-                      <span><strong class="sys-text-strong">Firecracker Jailer:</strong> <span class="sys-text-dim">UID/GID 20001, PR_SET_NO_NEW_PRIVS</span></span>
+                      <span><strong class="sys-text-strong">Firecracker Jailer:</strong> <span class="sys-text-dim">UID/GID 20001, seccomp-level 2 (required in production)</span></span>
                     </li>
                   </ul>
                 </div>
@@ -476,8 +477,8 @@
   │
   ├── <span class="hl-accent">Firecracker Jailer</span>
   │     ├── privilege drop <span class="hl-dim">(UID/GID 20001)</span>
-  │     ├── chroot <span class="hl-dim">(/srv/jailer/firecracker/&lt;id&gt;)</span>
-  │     └── cgroups v2 resource limits
+  │     ├── chroot <span class="hl-dim">(CRATERA_WORK_DIR/firecracker/&lt;id&gt;)</span>
+  │     └── cgroups v2 <span class="hl-dim">(memory.max, cpu.max, pids.max)</span>
   │
   └── <span class="hl-accent">Linux KVM</span> <span class="hl-dim">(/dev/kvm)</span>
         │
@@ -501,7 +502,7 @@
               <article class="security-card">
                 <h3 class="security-title">Firecracker Jailer</h3>
                 <p class="security-desc">
-                  Drops privileges to <code>UID/GID 20001</code>, applies <code>PR_SET_NO_NEW_PRIVS</code>, sets up a dedicated chroot, and binds to cgroups v2.
+                  Drops privileges to <code>UID/GID 20001</code>, chroots under <code>CRATERA_WORK_DIR</code>, applies seccomp-level 2, and sets cgroups v2 <code>memory.max</code>, <code>cpu.max</code>, and <code>pids.max</code>. Required when <code>NODE_ENV=production</code>.
                 </p>
               </article>
 
@@ -522,14 +523,14 @@
               <article class="security-card">
                 <h3 class="security-title">Toolchain Sandbox</h3>
                 <p class="security-desc">
-                  Compiles and executes code using configurations from <code>languages.toml</code> with POSIX <code>RLIMIT_CPU</code>, <code>RLIMIT_NPROC</code>, and watchdog timers.
+                  Compiles and runs code from <code>languages.toml</code> with a pidfd <code>SIGKILL</code> watchdog. Guest processes start from a cleared environment (<code>PATH</code>, <code>HOME</code>, <code>TMPDIR</code>, XDG only).
                 </p>
               </article>
 
               <article class="security-card">
                 <h3 class="security-title">Telemetry Stream</h3>
                 <p class="security-desc">
-                  Measures in-guest monotonic execution time in microseconds and samples live <code>RssAnon</code> memory during execution over <code>AF_VSOCK:52</code>.
+                  Measures in-guest time in microseconds and live <code>RssAnon</code> over <code>AF_VSOCK:52</code>. Each job also emits one host <code>job_record</code> log (verdict, timings, cgroup stats).
                 </p>
               </article>
             </div>
@@ -560,7 +561,7 @@
               <article class="security-card">
                 <h3 class="security-title">Jailer containment</h3>
                 <p class="security-desc">
-                  Firecracker runs under the unprivileged Jailer with UID/GID 20001, dedicated chroot filesystem isolation, and restrictive seccomp filters.
+                  Firecracker runs under the unprivileged Jailer with UID/GID 20001, chroot under the work directory, and seccomp-level 2. Production <code>serve</code> refuses to start if Jailer is off.
                 </p>
               </article>
 
@@ -574,7 +575,21 @@
               <article class="security-card">
                 <h3 class="security-title">Resource bounds</h3>
                 <p class="security-desc">
-                  CPU time, process counts (<code>RLIMIT_NPROC</code> fork-bomb guard), and memory allocations are strictly bounded per execution with a SIGKILL watchdog.
+                  Host cgroups cap <code>memory.max</code>, <code>cpu.max</code> (one quota period per vCPU), and <code>pids.max</code>. The coordinator runs one microVM at a time. Guest timeouts use pidfd <code>SIGKILL</code>.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">Production fail-closed</h3>
+                <p class="security-desc">
+                  With <code>NODE_ENV=production</code>, Cratera refuses Jailer-off, non-loopback bind, placeholder API keys (<code>dev-key…</code>), and missing or mismatched kernel/rootfs SHA-256 checksums.
+                </p>
+              </article>
+
+              <article class="security-card">
+                <h3 class="security-title">No host env in the guest</h3>
+                <p class="security-desc">
+                  Jailer, Firecracker, and guest jobs start from a cleared environment. The API stays on loopback; a leaked Bearer key cannot be used from the public internet if Zero Trust ingress is kept.
                 </p>
               </article>
             </div>
@@ -621,7 +636,7 @@
                   <span class="step-num">03.</span>
                   <h3 class="step-title">Verify host environment</h3>
                 </div>
-                <p class="step-desc">Verify <code>/dev/kvm</code> permissions, cgroups v2, and Jailer configuration:</p>
+                <p class="step-desc">Verify <code>/dev/kvm</code>, SMT/CPU mitigations, Jailer, bind address, checksums, and cgroups v2:</p>
                 <div class="step-cmd">
                   <code id="step3-cmd">cratera doctor</code>
                   <button class="copy-btn copy-btn-sm copy-btn-dark" onclick="copySnippet(this, 'step3-cmd')" aria-label="Copy cratera doctor command">
@@ -960,12 +975,12 @@ WantedBy=multi-user.target</code></pre>
                   <tr>
                     <td class="lang-key">CRATERA_USE_JAILER</td>
                     <td><code>1</code></td>
-                    <td>Enables Firecracker Jailer chroot, UID/GID 20001, and cgroups v2 containment in production.</td>
+                    <td>Required in production. Jailer chroot, UID/GID 20001, seccomp-level 2, and cgroups v2. <code>serve</code> exits if this is off when <code>NODE_ENV=production</code>.</td>
                   </tr>
                   <tr>
                     <td class="lang-key">Delegate</td>
                     <td><code>yes</code></td>
-                    <td>Grants Cratera control over its cgroup v2 subtree to manage memory and process limits.</td>
+                    <td>Grants Cratera control over its cgroup v2 subtree (<code>memory.max</code>, <code>cpu.max</code>, <code>pids.max</code>).</td>
                   </tr>
                   <tr>
                     <td class="lang-key">IPAddressDeny</td>
@@ -1092,8 +1107,8 @@ WantedBy=multi-user.target</code></pre>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
-                  <p><strong>No guest network interface:</strong> MicroVMs are launched without any virtual network devices (no tap/tun, no eth0). In addition, the systemd unit applies <code>IPAddressDeny=any</code> at the service level.</p>
-                  <p><strong>Resource bounds:</strong> CPU time and process counts (<code>RLIMIT_NPROC</code> to stop fork bombs) are enforced inside the guest, while cgroups v2 limits memory allocation on the host alongside a hypervisor SIGKILL watchdog.</p>
+                  <p><strong>No guest network interface:</strong> MicroVMs are launched without any virtual network devices (no tap/tun, no eth0). The systemd unit applies <code>IPAddressDeny=any</code>. Production also refuses a non-loopback <code>CRATERA_BIND</code>.</p>
+                  <p><strong>Resource bounds:</strong> Host cgroups cap memory, CPU, and PIDs. Guest execution is killed via pidfd <code>SIGKILL</code>. The coordinator runs one microVM at a time.</p>
                 </div>
               </details>
 
@@ -1113,7 +1128,7 @@ WantedBy=multi-user.target</code></pre>
                   <span class="faq-toggle-icon">▶</span>
                 </summary>
                 <div class="faq-answer">
-                  <p>Cratera includes a systemd unit (<code>deploy/cratera.service</code>) that enables unprivileged Firecracker Jailer chroot isolation (UID/GID 20001), cgroups v2 delegation (<code>Delegate=yes</code>), host network filtering (<code>IPAddressDeny=any</code>), and automatic process supervision.</p>
+                  <p>Cratera includes a systemd unit (<code>deploy/cratera.service</code>) with Jailer (UID/GID 20001), cgroups v2 (<code>Delegate=yes</code>), and <code>IPAddressDeny=any</code>. Production <code>serve</code> refuses Jailer-off, public bind, placeholder API keys, and missing image checksums. Keep the API on localhost behind Zero Trust ingress so a leaked key cannot be used from the internet.</p>
                 </div>
               </details>
             </div>
