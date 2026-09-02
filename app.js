@@ -216,31 +216,79 @@ document.addEventListener("DOMContentLoaded", () => {
     console.debug("Query param parse skipped:", e);
   }
 
-  // Adaptive Favicon Controller (Light Mode: Black icon, Dark Mode: White icon)
+  // Theme toggle, system sync, and favicon/theme-color chrome
+  const themeApi = window.__crateraTheme;
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeLabels = { system: "System", light: "Light", dark: "Dark" };
+  const themeOrder = { system: "light", light: "dark", dark: "system" };
+
+  function currentThemeState() {
+    if (themeApi) {
+      const mode = themeApi.pref();
+      const applied = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+      return { pref: mode, theme: applied };
+    }
+    const applied = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    return { pref: "system", theme: applied };
+  }
+
+  function updateThemeToggle(state) {
+    if (!themeToggle) return;
+    const pref = state.pref || "system";
+    const next = themeOrder[pref] || "light";
+    themeToggle.setAttribute(
+      "aria-label",
+      "Color theme: " + themeLabels[pref] + ". Click to switch to " + themeLabels[next] + "."
+    );
+    themeToggle.setAttribute("title", "Theme: " + themeLabels[pref]);
+  }
+
+  function updateFavicon(isDark) {
+    const icons = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]');
+    icons.forEach((icon) => {
+      if (icon.getAttribute("type") === "image/svg+xml") return;
+      const href = icon.getAttribute("href");
+      if (!href) return;
+      if (isDark && href.includes("favicon-light")) {
+        icon.setAttribute("href", href.replace("favicon-light", "favicon-dark"));
+      } else if (!isDark && href.includes("favicon-dark")) {
+        icon.setAttribute("href", href.replace("favicon-dark", "favicon-light"));
+      }
+    });
+  }
+
+  function syncThemeChrome(state) {
+    const resolved = state || currentThemeState();
+    updateThemeToggle(resolved);
+    try {
+      updateFavicon(resolved.theme === "dark");
+    } catch (e) {
+      console.debug("Favicon theme sync skipped:", e);
+    }
+  }
+
+  syncThemeChrome();
+
+  if (themeToggle && themeApi) {
+    themeToggle.addEventListener("click", () => {
+      syncThemeChrome(themeApi.cycle());
+    });
+  }
+
   try {
     if (window.matchMedia) {
       const matcher = window.matchMedia("(prefers-color-scheme: dark)");
-      const updateFavicon = (isDark) => {
-        const icons = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]');
-        icons.forEach((icon) => {
-          if (icon.getAttribute("type") === "image/svg+xml") return;
-          const href = icon.getAttribute("href");
-          if (!href) return;
-          if (isDark && href.includes("favicon-light")) {
-            icon.setAttribute("href", href.replace("favicon-light", "favicon-dark"));
-          } else if (!isDark && href.includes("favicon-dark")) {
-            icon.setAttribute("href", href.replace("favicon-dark", "favicon-light"));
-          }
-        });
+      const onSystemChange = () => {
+        if (!themeApi || themeApi.pref() !== "system") return;
+        syncThemeChrome(themeApi.apply("system", false));
       };
-      updateFavicon(matcher.matches);
       if (typeof matcher.addEventListener === "function") {
-        matcher.addEventListener("change", (e) => updateFavicon(e.matches));
+        matcher.addEventListener("change", onSystemChange);
       } else if (typeof matcher.addListener === "function") {
-        matcher.addListener((e) => updateFavicon(e.matches));
+        matcher.addListener(onSystemChange);
       }
     }
   } catch (e) {
-    console.debug("Favicon theme sync skipped:", e);
+    console.debug("System theme sync skipped:", e);
   }
 });

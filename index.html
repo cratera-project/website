@@ -13,8 +13,47 @@
     <meta name="creator" content="Cratera Project" />
     <meta name="publisher" content="Cratera Project" />
     <meta name="application-name" content="Cratera" />
-    <meta name="theme-color" content="#0f172a" />
+    <meta name="theme-color" content="#f6f6f4" />
     <meta name="color-scheme" content="light dark" />
+    <script>
+      (function (w) {
+        var KEY = "cratera-theme";
+        function pref() {
+          try {
+            var v = w.localStorage.getItem(KEY);
+            if (v === "light" || v === "dark" || v === "system") return v;
+          } catch (e) {}
+          return "system";
+        }
+        function systemDark() {
+          return !!(w.matchMedia && w.matchMedia("(prefers-color-scheme: dark)").matches);
+        }
+        function apply(next, persist) {
+          var mode = next || pref();
+          if (mode !== "light" && mode !== "dark" && mode !== "system") mode = "system";
+          var theme = mode === "system" ? (systemDark() ? "dark" : "light") : mode;
+          var root = document.documentElement;
+          root.setAttribute("data-theme", theme);
+          root.setAttribute("data-theme-pref", mode);
+          root.style.colorScheme = theme;
+          if (persist) {
+            try { w.localStorage.setItem(KEY, mode); } catch (e) {}
+          }
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute("content", theme === "dark" ? "#101214" : "#f6f6f4");
+          return { pref: mode, theme: theme };
+        }
+        apply(pref(), false);
+        w.__crateraTheme = {
+          pref: pref,
+          apply: apply,
+          cycle: function () {
+            var order = { system: "light", light: "dark", dark: "system" };
+            return apply(order[pref()] || "light", true);
+          }
+        };
+      })(window);
+    </script>
 
     <!-- Search Engine Crawler Directives -->
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -198,17 +237,33 @@
       <aside class="sidebar" aria-label="Cratera Navigation Sidebar">
         <div class="sidebar-header">
           <a href="#overview" class="brand-badge" aria-label="Cratera Home">
-            <img src="img/cratera-logo.png" alt="Cratera Logo" class="brand-logo-img" width="68" height="68" loading="eager" />
+            <img src="img/cratera-logo.png" alt="Cratera Logo" class="brand-logo-img" width="128" height="128" loading="eager" />
             <div class="brand-text-block">
               <span class="brand-name">CRATERA</span>
-              <span class="brand-version">MICROVM ENGINE</span>
+              <span class="brand-version">Hardware Isolated Code Execution Engine &amp; Judge</span>
             </div>
           </a>
-          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span class="menu-line"></span>
-            <span class="menu-line"></span>
-            <span class="menu-line"></span>
-          </button>
+          <div class="sidebar-header-actions">
+            <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Color theme: System. Click to switch to Light.">
+              <svg class="theme-icon theme-icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="7" y="3" width="10" height="14" rx="1.5"></rect>
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+              </svg>
+              <svg class="theme-icon theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 3v1.5M12 19.5V21M4.93 4.93l1.06 1.06M18.01 18.01l1.06 1.06M3 12h1.5M19.5 12H21M4.93 19.07l1.06-1.06M18.01 5.99l1.06-1.06"></path>
+              </svg>
+              <svg class="theme-icon theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 14.3A8.5 8.5 0 1 1 9.7 3a7 7 0 0 0 11.3 11.3z"></path>
+              </svg>
+            </button>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+              <span class="menu-line"></span>
+              <span class="menu-line"></span>
+              <span class="menu-line"></span>
+            </button>
+          </div>
         </div>
 
         <nav class="sidebar-nav" aria-label="Main Navigation">
@@ -234,19 +289,19 @@
         <div class="sidebar-footer">
           <div class="sidebar-info-block">
             <div class="sidebar-meta-row">
-              <span class="meta-label">HYPERVISOR</span>
+              <span class="meta-label">Hypervisor</span>
               <span class="meta-val">Linux KVM</span>
             </div>
             <div class="sidebar-meta-row">
-              <span class="meta-label">TOOLCHAIN</span>
+              <span class="meta-label">Toolchain</span>
               <span class="meta-val">Rust 2024</span>
             </div>
             <div class="sidebar-meta-row">
-              <span class="meta-label">LICENSE</span>
+              <span class="meta-label">License</span>
               <a href="https://github.com/cratera-project/cratera/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="meta-link">Apache-2.0</a>
             </div>
             <div class="sidebar-meta-row">
-              <span class="meta-label">CONTACT</span>
+              <span class="meta-label">Contact</span>
               <a href="mailto:contact@cratera.org" class="meta-link">contact@cratera.org</a>
             </div>
           </div>
