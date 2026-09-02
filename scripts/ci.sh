@@ -63,7 +63,7 @@ for pat in asset_patterns:
     for path in re.findall(pat, html):
         if path.startswith("http") or path.startswith("data:") or path.startswith("//") or path.startswith("mailto:"):
             continue
-        clean_path = path.lstrip("/")
+        clean_path = path.lstrip("/").split("?", 1)[0]
         if not os.path.exists(clean_path):
             missing.append(clean_path)
         checked += 1
